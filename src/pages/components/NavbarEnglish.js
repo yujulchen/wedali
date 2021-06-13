@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "./svg/Logo";
 
-const navbar = (props) => {
+const navbarEnglish = (props) => {
   const { setTranslate, className } = props;
 
   return (
@@ -15,23 +15,25 @@ const navbar = (props) => {
           </div>
         </Link>
         <div className="navbarTextBox">
-          <Link to="/product">產品介紹</Link>
-          <Link to="/instrument">機具設備</Link>
-          <Link to="/about">關於我們</Link>
-          <Link to="/contact">聯絡我們</Link>
-          <button className="language" style={{ paddingRight: "36px" }}>
-            中
+          <Link to="/product">Product</Link>
+          <Link to="/instrument">Instrument</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact Us</Link>
+          <button
+            className="language"
+            style={{ paddingRight: "36px" }}
+            onClick={() => setTranslate(true)}
+          >
+            Chinese
           </button>
-          <button className="language" onClick={() => setTranslate(false)}>
-            {/* <button className="language" onClick={() => "click"}> */}英
-          </button>
+          <button className="language">English</button>
         </div>
       </Navbar>
     </>
   );
 };
 
-const styledElement = styled(navbar)`
+const styledElement = styled(navbarEnglish)`
   background: #00283b;
   height: 70px;
   padding-left: 36px;
