@@ -9,9 +9,11 @@ const HomePage = ({ className }) => {
 };
 
 const styledElement = styled(HomePage)`
-  padding: 0px 120px;
-  width: 100vw;
-  height: 70px;
+  padding: 70px 260px;
+  & div {
+    background-color: #ccc;
+    height: 100vh;
+  }
 `;
 
 export default styledElement;
