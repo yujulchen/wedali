@@ -30,7 +30,7 @@ const styledElement = styled(Footer)`
     border-radius: 50%;
     position: fixed;
     bottom: 115px;
-    right: 120px;
+    right: 3.9vw;
     &:hover {
       cursor: pointer;
     }

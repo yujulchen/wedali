@@ -1,4 +1,5 @@
-import Navbar from "react-bootstrap/Navbar";
+import React, { useState } from "react";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -7,32 +8,59 @@ import Phone from "./svg/Phone";
 import Fax from "./svg/Fax";
 import Mail from "./svg/Mail";
 
-const navbar = (props) => {
+const NavbarMobile = (props) => {
   const { setTranslate, className } = props;
+  const [show, setShow] = useState(false);
 
   return (
     <div className={className}>
-      <Navbar className="navbar" expand="lg">
-        <Link to="/">
-          <Navbar.Brand className="logoBox">
+      <Navbar
+        className="navbar"
+        variant="dark"
+        fixed
+        expand="lg"
+        expanded={show}
+      >
+        <Navbar.Brand className="logoBox">
+          <Link to="/">
             <Logo />
-          </Navbar.Brand>
-        </Link>
-        <div className="navbarTextBox">
-          <Link to="/product">產品介紹</Link>
-          <Link to="/instrument">機具設備</Link>
-          <Link to="/about">關於我們</Link>
-          <Link to="/contact">聯絡我們</Link>
-          <button
-            className="language"
-            style={{ paddingRight: "36px", cursor: "no-drop" }}
-          >
-            中
-          </button>
-          <button className="language" onClick={() => setTranslate(false)}>
-            {/* <button className="language" onClick={() => "click"}> */}英
-          </button>
-        </div>
+          </Link>
+        </Navbar.Brand>
+        <Navbar.Toggle
+          aria-controls="navbarShow"
+          className="navToggle"
+          onClick={() => {
+            show ? setShow(false) : setShow(true);
+          }}
+        />
+        <Navbar.Collapse
+          id="navbarShow"
+          className="navbarCollapse"
+          style={{ width: "100vw" }}
+        >
+          <Nav>
+            <Link to="/product" onClick={() => setShow(false)}>
+              Product
+            </Link>
+            <Link to="/instrument" onClick={() => setShow(false)}>
+              Instrument
+            </Link>
+            <Link to="/about" onClick={() => setShow(false)}>
+              About&nbspUs
+            </Link>
+            <Link to="/contact" onClick={() => setShow(false)}>
+              Contact&nbspUs
+            </Link>
+          </Nav>
+          <Nav>
+            <Nav.Link className="language" onClick={() => setTranslate(true)}>
+              Chinese
+            </Nav.Link>
+            <Nav.Link className="language" disabled>
+              English
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
       <div className="contact">
         <div className="iconBox">
@@ -58,35 +86,37 @@ const navbar = (props) => {
   );
 };
 
-const styledElement = styled(navbar)`
+const styledElement = styled(NavbarMobile)`
   .navbar {
     background: #00283b;
-    position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 70px;
-    padding-left: 36px;
-    padding-right: 36px;
-    display: flex;
-    justify-content: space-between;
-    align-item: center;
     z-index: 9999;
     .logoBox {
+      margin-left: 36px;
       color: white;
       width: 8rem;
     }
-    .navbarTextBox {
-      display: flex;
+    .navToggle {
+      margin-right: 36px;
+      border: none;
+    }
+    .navbarCollapse {
+      padding: 2rem 3rem 1rem 3rem;
+      background: #00283b;
+    }
+    a {
       font-size: 18px;
-      a {
-        color: #fff;
-        padding-right: 3rem;
-        text-decoration: none;
-      }
-      .language {
-        color: #fff;
-        border: none;
-        background-color: inherit;
-      }
+      color: #fff;
+      text-decoration: none;
+      padding-bottom: 2rem;
+    }
+    .language {
+      font-size: 18px;
+      color: #fff;
+      border: none;
+      background-color: inherit;
+      padding-bottom: 2rem;
     }
   }
   .contact {
