@@ -16,21 +16,21 @@ const HomePage = (props) => {
       setCenterItem(false);
       setRightItem(false);
       setShowText(
-        "將塑膠粒加入射出機內，塑膠粒加熱後加壓射出至模具內，待冷卻後開模，即可得到客戶所需要的成品。"
+        "Mold Design possesses many years of product design experience in various categories. Our staff has a deep understanding of all materials and structures implemented in our projects. Our design department can provide the most professional suggestions, helping customers to economize, increase productiveness and reduce the risk of encountering eventual development issues."
       );
     }
     if (centerItem) {
       setLeftItem(false);
       setRightItem(false);
       setShowText(
-        "我們加工部門有製造精密模具所需的CNC數控銑床、放電加工機、銑床磨床，確定各零件的公差符合規定，然後組裝試模。"
+        "Mold Manufacture’s processing department has CNC washing machines, electric discharge machining, and brook bed grinders. All of these components have been properly regulated, have a tolerance margin, and have undergone assemble testing."
       );
     }
     if (rightItem) {
       setCenterItem(false);
       setLeftItem(false);
       setShowText(
-        "我們的設計部門擁有多年的生產設計經歷，對於各類產品、模具結構乃至於材料的特性都有很深入的了解，設計部能夠提供客戶最專業的模具設計建議，幫客戶節省開模成本，提高生產效率及減少模具開發風險。"
+        "The injection of microscopic plastic molecules inside of a machine, plastic molecules are heated, and pressure is added inside of the pattern, then the mold cools down, giving customers the product they desire."
       );
     }
   }, [showText, leftItem, centerItem, rightItem]);
@@ -41,8 +41,7 @@ const HomePage = (props) => {
         <div className="gearItemLeft">
           <Gear className="iconLeft" onClick={() => setLeftItem(true)} />
           <div className="gearText" onClick={() => setLeftItem(true)}>
-            <p className="gearTitle">模具設計</p>
-            <p>MOLD DESIGN</p>
+            <p className="gearTitle">MOLD DESIGN</p>
           </div>
         </div>
         <div className="gearItemCenter">
@@ -51,15 +50,13 @@ const HomePage = (props) => {
             onClick={() => setCenterItem(true)}
           />
           <div className="gearText" onClick={() => setCenterItem(true)}>
-            <p className="gearTitle">射出成型</p>
-            <p>INJECTION MOLDING</p>
+            <p className="gearTitle">INJECTION MOLDING</p>
           </div>
         </div>
         <div className="gearItemRight">
           <Gear className="iconRight" onClick={() => setRightItem(true)} />
           <div className="gearText" onClick={() => setRightItem(true)}>
-            <p className="gearTitle">模具製造</p>
-            <p>MOLD MANUFACTURE</p>
+            <p className="gearTitle">MOLD MANUFACTURE</p>
           </div>
         </div>
       </div>
@@ -102,7 +99,7 @@ const styledElement = styled(HomePage)`
         width: 100%;
         position: absolute;
         left: 26%;
-        top: 21%;
+        top: 23%;
         color: #fff;
         text-align: center;
         z-index: 100;
@@ -113,7 +110,7 @@ const styledElement = styled(HomePage)`
           margin: 0;
         }
         .gearTitle {
-          font-size: 2.25rem;
+          font-size: 24px;
           font-weight: 700;
         }
       }
@@ -147,7 +144,7 @@ const styledElement = styled(HomePage)`
           margin: 0;
         }
         .gearTitle {
-          font-size: 2.25rem;
+          font-size: 24px;
           font-weight: 700;
         }
       }
@@ -180,7 +177,7 @@ const styledElement = styled(HomePage)`
           margin: 0;
         }
         .gearTitle {
-          font-size: 2.25rem;
+          font-size: 24px;
           font-weight: 700;
         }
       }

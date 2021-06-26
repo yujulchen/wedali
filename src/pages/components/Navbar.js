@@ -92,9 +92,11 @@ const styledElement = styled(navbar)`
   .contact {
     width: 84px;
     height: 268px;
+    margin-right: 5%;
     position: fixed;
     top: 8.2%;
     left: 2.9vw;
+    z-index: 9999;
     .iconBox {
       width: 84px;
       height: 84px;

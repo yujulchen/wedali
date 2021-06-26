@@ -10,6 +10,7 @@ import NavbarMobile from "./pages/components/NavbarMobile";
 import NavbarEnglishMobile from "./pages/components/NavbarEnglishMobile";
 import Footer from "./pages/components/Footer";
 import HomePage from "./pages/HomePage";
+import HomePageEnglish from "./pages/HomePageEnglish";
 import Product from "./pages/Product";
 import Instrument from "./pages/Instrument";
 import About from "./pages/About";
@@ -23,7 +24,7 @@ const layout = layoutGenerator({
 function App(props) {
   const OnMobile = layout.is("mobile");
   const OnDesktop = layout.is("desktop");
-  const [translate, setTranslate] = useState(true);
+  const [translate, setTranslate] = useState(false);
 
   return (
     <Router>
@@ -34,7 +35,11 @@ function App(props) {
           <NavbarEnglish setTranslate={setTranslate} />
         )}
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route
+            exact
+            path="/"
+            component={translate ? HomePage : HomePageEnglish}
+          />
           <Route path="/product" component={Product} />
           <Route path="/instrument" component={Instrument} />
           <Route path="/about" component={About} />
