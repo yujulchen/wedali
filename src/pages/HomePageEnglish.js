@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Gear from "./components/svg/Gear";
 import GearCenter from "./components/svg/GearCenter";
 import FirstBlock from "./components/svg/FirstBlock";
+import MainProcess from "./components/svg/MainProcess";
+import MainProcessFlowEnglish from "./components/svg/MainProcessFlowEnglish";
 import { useEffect, useState } from "react";
 
 const HomePage = (props) => {
@@ -68,12 +70,19 @@ const HomePage = (props) => {
           <span className="introductionSpan">{showText}</span>
         </div>
       </div>
+      <div className="section">
+        <div className="title">
+          <MainProcess style={{ width: "100%" }} />
+        </div>
+        <div className="MainProcessFlow">
+          <MainProcessFlowEnglish style={{ width: "100%" }} />
+        </div>
+      </div>
     </div>
   );
 };
 
 const styledElement = styled(HomePage)`
-  width: 100vw;
   padding: 70px 8.3vw;
   .gearBox {
     display: flex;
@@ -197,14 +206,29 @@ const styledElement = styled(HomePage)`
       align-items: center;
       width: 100%;
       height: 100%;
-      padding: 0 30%;
       position: absolute;
       top: 0;
       .introductionSpan {
         text-align: center;
-        width: 100%;
+        width: 800px;
         color: #fff;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+          display: none;
+        }
       }
+    }
+  }
+  .section {
+    width: 100%;
+    .title {
+      width: 100%;
+      margin-top: 122px;
+      margin-bottom: 47px;
+    }
+    .MainProcessFlow {
+      width: 100%;
+      margin-bottom: 45px;
     }
   }
 `;

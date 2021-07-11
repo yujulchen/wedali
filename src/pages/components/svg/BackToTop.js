@@ -10,7 +10,7 @@ function BackToTop(props) {
       {...props}
     >
       <defs>
-        <clipPath id="prefix__a">
+        <clipPath id="BackToTop">
           <path
             d="M7.142 29V18.125H0L12.5 5.437 25 18.125h-7.144V29zM0 3.625V0h25v3.625z"
             transform="translate(-.063 -.145)"
@@ -41,7 +41,7 @@ function BackToTop(props) {
             />
             <g
               data-name="Mask Group 159"
-              clipPath="url(#prefix__a)"
+              clipPath="url(#BackToTop)"
               transform="translate(1267.497 2530.711)"
             >
               <path

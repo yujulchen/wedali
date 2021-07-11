@@ -24,7 +24,7 @@ const layout = layoutGenerator({
 function App(props) {
   const OnMobile = layout.is("mobile");
   const OnDesktop = layout.is("desktop");
-  const [translate, setTranslate] = useState(false);
+  const [translate, setTranslate] = useState(true);
 
   return (
     <Router>
