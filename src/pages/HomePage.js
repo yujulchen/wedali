@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { rotateIn, fadeIn, slideInUp } from "react-animations";
 import Gear from "./components/svg/Gear";
 import GearCenter from "./components/svg/GearCenter";
 import FirstBlock from "./components/svg/FirstBlock";
@@ -6,43 +7,69 @@ import MainProcess from "./components/svg/MainProcess";
 import MainProcessFlow from "./components/svg/MainProcessFlow";
 import { useEffect, useState } from "react";
 
+const rotateInAnimation = keyframes`${rotateIn}`;
+const fadeInAnimation = keyframes`${fadeIn}`;
+const slideInUpAnimation = keyframes`${slideInUp}`;
+
 const HomePage = (props) => {
   const { className } = props;
   const [showText, setShowText] = useState("");
-  const [leftItem, setLeftItem] = useState(true);
-  const [centerItem, setCenterItem] = useState(false);
-  const [rightItem, setRightItem] = useState(false);
+  const [clickItem, setClickItem] = useState("");
 
   useEffect(() => {
-    if (leftItem) {
-      setCenterItem(false);
-      setRightItem(false);
-      setShowText(
-        "將塑膠粒加入射出機內，塑膠粒加熱後加壓射出至模具內，待冷卻後開模，即可得到客戶所需要的成品。"
+    if (clickItem === "left") {
+      const leftItem = (
+        <div className="introductionBox">
+          <div className="introductionIcon">
+            <FirstBlock style={{ width: "100%" }} />
+          </div>
+          <div className="introductionText">
+            <span className="introductionSpan">
+              將塑膠粒加入射出機內，塑膠粒加熱後加壓射出至模具內，待冷卻後開模，即可得到客戶所需要的成品。
+            </span>
+          </div>
+        </div>
       );
+      setShowText(leftItem);
     }
-    if (centerItem) {
-      setLeftItem(false);
-      setRightItem(false);
-      setShowText(
-        "我們加工部門有製造精密模具所需的CNC數控銑床、放電加工機、銑床磨床，確定各零件的公差符合規定，然後組裝試模。"
+    if (clickItem === "center") {
+      const centerItem = (
+        <div className="introductionBox">
+          <div className="introductionIcon">
+            <FirstBlock style={{ width: "100%" }} />
+          </div>
+          <div className="introductionText">
+            <span className="introductionSpan">
+              我們加工部門有製造精密模具所需的CNC數控銑床、放電加工機、銑床磨床，確定各零件的公差符合規定，然後組裝試模。
+            </span>
+          </div>
+        </div>
       );
+      setShowText(centerItem);
     }
-    if (rightItem) {
-      setCenterItem(false);
-      setLeftItem(false);
-      setShowText(
-        "我們的設計部門擁有多年的生產設計經歷，對於各類產品、模具結構乃至於材料的特性都有很深入的了解，設計部能夠提供客戶最專業的模具設計建議，幫客戶節省開模成本，提高生產效率及減少模具開發風險。"
+    if (clickItem === "right") {
+      const rightItem = (
+        <div className="introductionBox">
+          <div className="introductionIcon">
+            <FirstBlock style={{ width: "100%" }} />
+          </div>
+          <div className="introductionText">
+            <span className="introductionSpan">
+              我們的設計部門擁有多年的生產設計經歷，對於各類產品、模具結構乃至於材料的特性都有很深入的了解，設計部能夠提供客戶最專業的模具設計建議，幫客戶節省開模成本，提高生產效率及減少模具開發風險。
+            </span>
+          </div>
+        </div>
       );
+      setShowText(rightItem);
     }
-  }, [showText, leftItem, centerItem, rightItem]);
+  }, [clickItem]);
 
   return (
     <div className={className}>
       <div className="gearBox">
         <div className="gearItemLeft">
-          <Gear className="iconLeft" onClick={() => setLeftItem(true)} />
-          <div className="gearText" onClick={() => setLeftItem(true)}>
+          <Gear className="iconLeft" onClick={() => setClickItem("left")} />
+          <div className="gearText" onClick={() => setClickItem("left")}>
             <p className="gearTitle">模具設計</p>
             <p>MOLD DESIGN</p>
           </div>
@@ -50,29 +77,22 @@ const HomePage = (props) => {
         <div className="gearItemCenter">
           <GearCenter
             className="iconCenter"
-            onClick={() => setCenterItem(true)}
+            onClick={() => setClickItem("center")}
           />
-          <div className="gearText" onClick={() => setCenterItem(true)}>
+          <div className="gearText" onClick={() => setClickItem("center")}>
             <p className="gearTitle">射出成型</p>
             <p>INJECTION MOLDING</p>
           </div>
         </div>
         <div className="gearItemRight">
-          <Gear className="iconRight" onClick={() => setRightItem(true)} />
-          <div className="gearText" onClick={() => setRightItem(true)}>
+          <Gear className="iconRight" onClick={() => setClickItem("right")} />
+          <div className="gearText" onClick={() => setClickItem("right")}>
             <p className="gearTitle">模具製造</p>
             <p>MOLD MANUFACTURE</p>
           </div>
         </div>
       </div>
-      <div className="introductionBox">
-        <div className="introductionIcon">
-          <FirstBlock style={{ width: "100%" }} />
-        </div>
-        <div className="introductionText">
-          <span className="introductionSpan">{showText}</span>
-        </div>
-      </div>
+      {showText}
       <div className="section">
         <div className="title">
           <MainProcess style={{ width: "100%" }} />
@@ -93,6 +113,7 @@ const styledElement = styled(HomePage)`
     width: 100%;
     height: 620px;
     padding-top: 70px;
+    animation: ${fadeInAnimation} 2s ease-in;
     .gearItemLeft {
       position: relative;
       width: 240px;
@@ -102,9 +123,7 @@ const styledElement = styled(HomePage)`
         top: 2%;
         &:hover {
           cursor: pointer;
-          .gear {
-            transform: rotate(35deg);
-          }
+          animation: ${rotateInAnimation} 1s;
         }
       }
       .gearText {
@@ -117,6 +136,7 @@ const styledElement = styled(HomePage)`
         z-index: 100;
         &:hover {
           cursor: pointer;
+          animation: ${fadeInAnimation} 1s;
         }
         p {
           margin: 0;
@@ -136,9 +156,7 @@ const styledElement = styled(HomePage)`
         bottom: 0;
         &:hover {
           cursor: pointer;
-          .gear {
-            transform: rotate(35deg);
-          }
+          animation: ${rotateInAnimation} 1s;
         }
       }
       .gearText {
@@ -151,6 +169,7 @@ const styledElement = styled(HomePage)`
         z-index: 100;
         &:hover {
           cursor: pointer;
+          animation: ${fadeInAnimation} 1s;
         }
         p {
           margin: 0;
@@ -169,9 +188,7 @@ const styledElement = styled(HomePage)`
         bottom: 30%;
         &:hover {
           cursor: pointer;
-          .gear {
-            transform: rotate(35deg);
-          }
+          animation: ${rotateInAnimation} 1s;
         }
       }
       .gearText {
@@ -184,6 +201,7 @@ const styledElement = styled(HomePage)`
         z-index: 100;
         &:hover {
           cursor: pointer;
+          animation: ${fadeInAnimation} 1s;
         }
         p {
           margin: 0;
@@ -199,6 +217,7 @@ const styledElement = styled(HomePage)`
     width: 100%;
     margin-top: 54px;
     position: relative;
+    animation: ${fadeInAnimation} 1s;
     .introductionIcon {
       width: 100%;
       margin: 0 auto;
@@ -220,6 +239,7 @@ const styledElement = styled(HomePage)`
   }
   .section {
     width: 100%;
+    animation: ${slideInUpAnimation} 2s;
     .title {
       width: 100%;
       margin-top: 122px;

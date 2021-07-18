@@ -2,13 +2,7 @@ import * as React from "react";
 
 function Logo(props) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={83}
-      height={48}
-      viewBox="0 0 83 48"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83 48" {...props}>
       <g data-name="Group 308">
         <g data-name="Group 307" fill="#fff">
           <path

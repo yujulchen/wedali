@@ -1,5 +1,5 @@
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Logo from "./svg/Logo";
@@ -10,12 +10,18 @@ import Mail from "./svg/Mail";
 const navbar = (props) => {
   const { setTranslate, className } = props;
 
+  const handleTrans = () => {
+    setTranslate(false);
+    // console.log(props);
+    props.history.push("/english");
+  };
+
   return (
     <div className={className}>
       <Navbar className="navbar" expand="lg">
         <Link to="/">
-          <Navbar.Brand className="logoBox">
-            <Logo />
+          <Navbar.Brand>
+            <Logo className="logoBox" />
           </Navbar.Brand>
         </Link>
         <div className="navbarTextBox">
@@ -29,8 +35,8 @@ const navbar = (props) => {
           >
             中
           </button>
-          <button className="language" onClick={() => setTranslate(false)}>
-            {/* <button className="language" onClick={() => "click"}> */}英
+          <button className="language" onClick={handleTrans}>
+            英
           </button>
         </div>
       </Navbar>
@@ -62,7 +68,7 @@ const styledElement = styled(navbar)`
   .navbar {
     background: #00283b;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 70px;
     padding-left: 36px;
     padding-right: 36px;
@@ -72,7 +78,8 @@ const styledElement = styled(navbar)`
     z-index: 9999;
     .logoBox {
       color: white;
-      width: 8rem;
+      width: 30%;
+      height: 100%
     }
     .navbarTextBox {
       display: flex;
@@ -103,6 +110,8 @@ const styledElement = styled(navbar)`
       margin-bottom: 8px;
       position: relative;
       z-index: 200;
+      box-shadow: 3px 2px 1px white;
+      border-radius: 50%;
       &:hover {
         cursor: pointer;
         opacity: 0.9;
@@ -126,6 +135,7 @@ const styledElement = styled(navbar)`
         left: 42px;
         z-index: -2;
         border-radius: 10px;
+        box-shadow: 3px 2px 1px white;
         opacity: 0;
         transition: all 0.5s ease-in-out 0.5s;
         -ms-transition:: all 0.5s ease-in-out 0.5s;
@@ -137,4 +147,4 @@ const styledElement = styled(navbar)`
   }
 `;
 
-export default styledElement;
+export default withRouter(styledElement);

@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { rotateIn, fadeIn, slideInUp } from "react-animations";
 import Gear from "./components/svg/Gear";
 import GearCenter from "./components/svg/GearCenter";
 import FirstBlock from "./components/svg/FirstBlock";
@@ -6,70 +7,100 @@ import MainProcess from "./components/svg/MainProcess";
 import MainProcessFlowEnglish from "./components/svg/MainProcessFlowEnglish";
 import { useEffect, useState } from "react";
 
+const rotateInAnimation = keyframes`${rotateIn}`;
+const fadeInAnimation = keyframes`${fadeIn}`;
+const slideInUpAnimation = keyframes`${slideInUp}`;
+
 const HomePage = (props) => {
   const { className } = props;
   const [showText, setShowText] = useState("");
-  const [leftItem, setLeftItem] = useState(true);
-  const [centerItem, setCenterItem] = useState(false);
-  const [rightItem, setRightItem] = useState(false);
+  const [clickItem, setClickItem] = useState("");
 
   useEffect(() => {
-    if (leftItem) {
-      setCenterItem(false);
-      setRightItem(false);
-      setShowText(
-        "Mold Design possesses many years of product design experience in various categories. Our staff has a deep understanding of all materials and structures implemented in our projects. Our design department can provide the most professional suggestions, helping customers to economize, increase productiveness and reduce the risk of encountering eventual development issues."
+    if (clickItem === "left") {
+      const leftItem = (
+        <div className="introductionBox">
+          <div className="introductionIcon">
+            <FirstBlock style={{ width: "100%" }} />
+          </div>
+          <div className="introductionText">
+            <span className="introductionSpan">
+              Mold Design possesses many years of product design experience in
+              various categories. Our staff has a deep understanding of all
+              materials and structures implemented in our projects. Our design
+              department can provide the most professional suggestions, helping
+              customers to economize, increase productiveness and reduce the
+              risk of encountering eventual development issues.
+            </span>
+          </div>
+        </div>
       );
+      setShowText(leftItem);
     }
-    if (centerItem) {
-      setLeftItem(false);
-      setRightItem(false);
-      setShowText(
-        "Mold Manufacture’s processing department has CNC washing machines, electric discharge machining, and brook bed grinders. All of these components have been properly regulated, have a tolerance margin, and have undergone assemble testing."
+    if (clickItem === "center") {
+      const centerItem = (
+        <div className="introductionBox">
+          <div className="introductionIcon">
+            <FirstBlock style={{ width: "100%" }} />
+          </div>
+          <div className="introductionText">
+            <span className="introductionSpan">
+              Mold Manufacture’s processing department has CNC washing machines,
+              electric discharge machining, and brook bed grinders. All of these
+              components have been properly regulated, have a tolerance margin,
+              and have undergone assemble testing.
+            </span>
+          </div>
+        </div>
       );
+      setShowText(centerItem);
     }
-    if (rightItem) {
-      setCenterItem(false);
-      setLeftItem(false);
-      setShowText(
-        "The injection of microscopic plastic molecules inside of a machine, plastic molecules are heated, and pressure is added inside of the pattern, then the mold cools down, giving customers the product they desire."
+    if (clickItem === "right") {
+      const rightItem = (
+        <div className="introductionBox">
+          <div className="introductionIcon">
+            <FirstBlock style={{ width: "100%" }} />
+          </div>
+          <div className="introductionText">
+            <span className="introductionSpan">
+              The injection of microscopic plastic molecules inside of a
+              machine, plastic molecules are heated, and pressure is added
+              inside of the pattern, then the mold cools down, giving customers
+              the product they desire.
+            </span>
+          </div>
+        </div>
       );
+      setShowText(rightItem);
     }
-  }, [showText, leftItem, centerItem, rightItem]);
+  }, [clickItem]);
 
   return (
     <div className={className}>
       <div className="gearBox">
         <div className="gearItemLeft">
-          <Gear className="iconLeft" onClick={() => setLeftItem(true)} />
-          <div className="gearText" onClick={() => setLeftItem(true)}>
+          <Gear className="iconLeft" onClick={() => setClickItem("left")} />
+          <div className="gearText" onClick={() => setClickItem("left")}>
             <p className="gearTitle">MOLD DESIGN</p>
           </div>
         </div>
         <div className="gearItemCenter">
           <GearCenter
             className="iconCenter"
-            onClick={() => setCenterItem(true)}
+            onClick={() => setClickItem("center")}
           />
-          <div className="gearText" onClick={() => setCenterItem(true)}>
+          <div className="gearText" onClick={() => setClickItem("center")}>
             <p className="gearTitle">INJECTION MOLDING</p>
           </div>
         </div>
         <div className="gearItemRight">
-          <Gear className="iconRight" onClick={() => setRightItem(true)} />
-          <div className="gearText" onClick={() => setRightItem(true)}>
+          <Gear className="iconRight" onClick={() => setClickItem("right")} />
+          <div className="gearText" onClick={() => setClickItem("right")}>
             <p className="gearTitle">MOLD MANUFACTURE</p>
           </div>
         </div>
       </div>
-      <div className="introductionBox">
-        <div className="introductionIcon">
-          <FirstBlock style={{ width: "100%" }} />
-        </div>
-        <div className="introductionText">
-          <span className="introductionSpan">{showText}</span>
-        </div>
-      </div>
+      {showText}
       <div className="section">
         <div className="title">
           <MainProcess style={{ width: "100%" }} />
@@ -90,6 +121,7 @@ const styledElement = styled(HomePage)`
     width: 100%;
     height: 620px;
     padding-top: 70px;
+    animation: ${fadeInAnimation} 2s ease-in;
     .gearItemLeft {
       position: relative;
       width: 240px;
@@ -99,9 +131,7 @@ const styledElement = styled(HomePage)`
         top: 2%;
         &:hover {
           cursor: pointer;
-          .gear {
-            transform: rotate(35deg);
-          }
+          animation: ${rotateInAnimation} 1s;
         }
       }
       .gearText {
@@ -114,6 +144,7 @@ const styledElement = styled(HomePage)`
         z-index: 100;
         &:hover {
           cursor: pointer;
+          animation: ${fadeInAnimation} 1s;
         }
         p {
           margin: 0;
@@ -133,9 +164,7 @@ const styledElement = styled(HomePage)`
         bottom: 0;
         &:hover {
           cursor: pointer;
-          .gear {
-            transform: rotate(35deg);
-          }
+          animation: ${rotateInAnimation} 1s;
         }
       }
       .gearText {
@@ -148,6 +177,7 @@ const styledElement = styled(HomePage)`
         z-index: 100;
         &:hover {
           cursor: pointer;
+          animation: ${fadeInAnimation} 1s;
         }
         p {
           margin: 0;
@@ -166,9 +196,7 @@ const styledElement = styled(HomePage)`
         bottom: 30%;
         &:hover {
           cursor: pointer;
-          .gear {
-            transform: rotate(35deg);
-          }
+          animation: ${rotateInAnimation} 1s;
         }
       }
       .gearText {
@@ -181,6 +209,7 @@ const styledElement = styled(HomePage)`
         z-index: 100;
         &:hover {
           cursor: pointer;
+          animation: ${fadeInAnimation} 1s;
         }
         p {
           margin: 0;
@@ -196,6 +225,7 @@ const styledElement = styled(HomePage)`
     width: 100%;
     margin-top: 54px;
     position: relative;
+    animation: ${fadeInAnimation} 1s;
     .introductionIcon {
       width: 100%;
       margin: 0 auto;
@@ -221,6 +251,7 @@ const styledElement = styled(HomePage)`
   }
   .section {
     width: 100%;
+    animation: ${slideInUpAnimation} 2s;
     .title {
       width: 100%;
       margin-top: 122px;

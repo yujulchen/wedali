@@ -1,23 +1,23 @@
 import styled, { keyframes } from "styled-components";
 import { fadeIn, slideInUp, flipInX } from "react-animations";
-import Intention from "./components/svg/Intention";
+import IntentionEnglish from "./components/svg/IntentionEnglish";
 import AboutTitle from "./components/svg/AboutTitle";
 import Logo from "./components/svg/Logo";
 import QualityTitle from "./components/svg/QualityTitle";
-import IntegrationOfEquipment from "./components/svg/IntegrationOfEquipment";
-import TechnicalService from "./components/svg/TechnicalService";
-import ContinuousDevelopment from "./components/svg/ContinuousDevelopment";
+import IntegrationOfEquipmentEnglish from "./components/svg/IntegrationOfEquipmentEnglish";
+import TechnicalServiceEnglish from "./components/svg/TechnicalServiceEnglish";
+import ContinuousDevelopmentEnglish from "./components/svg/ContinuousDevelopmentEnglish";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 const slideInUpAnimation = keyframes`${slideInUp}`;
 const flipInXAnimation = keyframes`${flipInX}`;
 
-const About = (props) => {
+const AboutEnglish = (props) => {
   const { className } = props;
   return (
     <div className={className}>
       <div className="intentionBox">
-        <Intention style={{ width: "100%" }} />
+        <IntentionEnglish style={{ width: "100%" }} />
       </div>
       <div className="section_one">
         <div className="title">
@@ -29,14 +29,37 @@ const About = (props) => {
             <Logo style={{ width: "100%" }} />
           </div>
           <div className="aboutText">
+            <p>Weidali enterprise is a single-venture company.</p>
             <p>
-              維大利企業社是獨資企業，于西元1927年正式成立，本公司長期承製各式塑膠製品、益智玩具、汽車零配件塑膠射出成型代工品、家電塑膠射出代工品、電子3C資訊塑膠射出代工品等...上市櫃公司各式塑膠產品射出成型、精密塑膠射出件產品及塑膠射出模具的設計開發。
+              Founded in 1927, the enterprise has collaborated with Mold Design
+              in plastic molecules production for many years.
             </p>
             <p>
-              優良的品質是我們一貫的宗旨，長久以來即秉持「品質第一、價格合理、交貨準時、服務效率高」的經營理念，在每一組產品製造過程中，從「設計」、「開模」、「射出」在每一道的工作流程裡，我們均專注於每一個細節，並超越客戶所要求的標準，公司真誠希望新老客户前來考察、指導。
+              Producing intellectually stimulating toys, automotive components,
+              household electronics plastic equipment, 3C equipment, etc.… the
+              company is on the stock market and has various injection molding
+              products, precision injection products, and plastic injection
+              equipment development.
             </p>
             <p>
-              我們以創新的工藝,優秀的品質,合理的價格,為客戶提供至誠的服務,並期望與您真誠愉快的合作。
+              High quality products are Weidali’s goal; what they value the most
+              is long term quality, reasonable prices, punctual product
+              delivery, and effective service.
+            </p>
+            <p>
+              During the production process of each product, from design,
+              modelling, and injection, Weidali focuses on every small detail
+              and exceed all client’s expectations.
+            </p>
+            <p>
+              The company hopes that all new and old costumers will be able to
+              audit and guide.
+            </p>
+            <p>
+              Weidali releases new products of excellent quality and at a
+              reasonable price, providing the best service to their clients,
+              they hope that they can have a smooth and fast collaboration with
+              prospective clients.
             </p>
           </div>
         </div>
@@ -48,15 +71,15 @@ const About = (props) => {
         <div className="qualityBox">
           <div className="qualityFirstLine">
             <div className="qualityLeft">
-              <IntegrationOfEquipment style={{ width: "100%" }} />
+              <IntegrationOfEquipmentEnglish style={{ width: "100%" }} />
             </div>
             <div className="qualityRight">
-              <TechnicalService style={{ width: "100%" }} />
+              <TechnicalServiceEnglish style={{ width: "100%" }} />
             </div>
           </div>
           <div className="qualitySecondLine">
             <div className="qualityCenter">
-              <ContinuousDevelopment style={{ width: "100%" }} />
+              <ContinuousDevelopmentEnglish style={{ width: "100%" }} />
             </div>
           </div>
         </div>
@@ -64,7 +87,7 @@ const About = (props) => {
     </div>
   );
 };
-const styledElement = styled(About)`
+const styledElement = styled(AboutEnglish)`
   padding: 70px 8.3vw;
   overflow: hidden;
   .intentionBox {
@@ -87,7 +110,7 @@ const styledElement = styled(About)`
     }
     .aboutBackground {
       width: 100vw;
-      height: 500px;
+      height: 750px;
       background-color: #00283b;
       margin-left: -8.3vw;
       position: absolute;
@@ -95,7 +118,7 @@ const styledElement = styled(About)`
       z-index: -10;
     }
     .aboutBox {
-      height: 500px;
+      height: 750px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -104,7 +127,7 @@ const styledElement = styled(About)`
         margin-right: 84px;
       }
       .aboutText {
-        width: 28rem;
+        width: 30rem;
         p {
           color: #fff;
         }
