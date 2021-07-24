@@ -19,15 +19,18 @@ const Contact = (props) => {
             <Map />
           </div>
           <div className="contactText">
-            <p>電話：</p>
+            <p>Telephone:</p>
             <p>&emsp;&emsp;&emsp;02-26776184</p>
-            <p>傳真：</p>
+            <p>Fax:</p>
             <p>&emsp;&emsp;&emsp;02-26776164</p>
-            <p>信箱：</p>
+            <p>Email:</p>
             <p>&emsp;&emsp;&emsp;q121135.q60@gmail.com</p>
-            <p>地址：</p>
-            <p>&emsp;&emsp;&emsp;新北市鶯歌區建國路367巷2號</p>
-            <p>統編：</p>
+            <p>Address:</p>
+            <p>
+              &emsp;&emsp;&emsp;No. 2, Ln. 367, Jianguo Rd., Yingge Dist., New
+              Taipei City, Taiwan (R.O.C.)
+            </p>
+            <p>GUI Number:</p>
             <p>&emsp;&emsp;&emsp;98675099</p>
           </div>
         </div>
@@ -35,7 +38,6 @@ const Contact = (props) => {
     </div>
   );
 };
-
 const styledElement = styled(Contact)`
   padding: 70px 8.3vw;
   animation: ${fadeInAnimation} 2s;

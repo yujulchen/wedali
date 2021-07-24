@@ -16,6 +16,7 @@ import Instrument from "./pages/Instrument";
 import About from "./pages/About";
 import AboutEnglish from "./pages/AboutEnglish";
 import Contact from "./pages/Contact";
+import ContactEnglish from "./pages/ContactEnglish";
 
 const layout = layoutGenerator({
   mobile: 0,
@@ -39,10 +40,12 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/english" component={HomePageEnglish} />
           <Route path="/product" component={Product} />
+          <Route path="/english/product" component={Product} />
           <Route path="/instrument" component={Instrument} />
           <Route path="/about" component={About} />
           <Route path="/english/about" component={AboutEnglish} />
           <Route path="/contact" component={Contact} />
+          <Route path="/english/contact" component={ContactEnglish} />
         </Switch>
         <Footer />
       </OnDesktop>
