@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Logo from "./svg/Logo";
@@ -8,9 +8,14 @@ import Phone from "./svg/Phone";
 import Fax from "./svg/Fax";
 import Mail from "./svg/Mail";
 
-const NavbarMobile = (props) => {
+const NavbarMobileEnglish = (props) => {
   const { setTranslate, className } = props;
   const [show, setShow] = useState(false);
+
+  const handleTrans = () => {
+    setTranslate(true);
+    props.history.push("/mobile");
+  };
 
   return (
     <div className={className}>
@@ -22,7 +27,7 @@ const NavbarMobile = (props) => {
         expanded={show}
       >
         <Navbar.Brand className="logoBox">
-          <Link to="/">
+          <Link to="/mobile">
             <Logo />
           </Link>
         </Navbar.Brand>
@@ -39,21 +44,24 @@ const NavbarMobile = (props) => {
           style={{ width: "100vw" }}
         >
           <Nav>
-            <Link to="/product" onClick={() => setShow(false)}>
+            <Link to="/mobile/english/product" onClick={() => setShow(false)}>
               Product
             </Link>
-            <Link to="/instrument" onClick={() => setShow(false)}>
+            <Link
+              to="/mobile/english/instrument"
+              onClick={() => setShow(false)}
+            >
               Instrument
             </Link>
-            <Link to="/about" onClick={() => setShow(false)}>
-              About&nbspUs
+            <Link to="/mobile/english/about" onClick={() => setShow(false)}>
+              About
             </Link>
-            <Link to="/contact" onClick={() => setShow(false)}>
-              Contact&nbspUs
+            <Link to="/mobile/english/contact" onClick={() => setShow(false)}>
+              Contact
             </Link>
           </Nav>
           <Nav>
-            <Nav.Link className="language" onClick={() => setTranslate(true)}>
+            <Nav.Link className="language" onClick={handleTrans}>
               Chinese
             </Nav.Link>
             <Nav.Link className="language" disabled>
@@ -65,19 +73,19 @@ const NavbarMobile = (props) => {
       <div className="contact">
         <div className="iconBox">
           <a href="tel:+886-2-26776184">
-            <Phone />
+            <Phone style={{ width: "100%" }} />
             <div className="iconText">電話:02-26776184</div>
           </a>
         </div>
         <div className="iconBox">
           <a href="fax:+886-2-26776164">
-            <Fax />
+            <Fax style={{ width: "100%" }} />
             <div className="iconText">傳真:02-26776164</div>
           </a>
         </div>
         <div className="iconBox">
           <a href="mailto:q121135.q60@gmail.com">
-            <Mail />
+            <Mail style={{ width: "100%" }} />
             <div className="iconText">EMAIL:q121135.q60@gmail.com</div>
           </a>
         </div>
@@ -86,19 +94,19 @@ const NavbarMobile = (props) => {
   );
 };
 
-const styledElement = styled(NavbarMobile)`
+const styledElement = styled(NavbarMobileEnglish)`
   .navbar {
     background: #00283b;
-    width: 100vw;
-    height: 70px;
+    width: 100%;
+    height: 54px;
     z-index: 9999;
     .logoBox {
-      margin-left: 36px;
+      margin-left: 8px;
       color: white;
-      width: 8rem;
+      width: 4rem;
     }
     .navToggle {
-      margin-right: 36px;
+      margin-right: 8px;
       border: none;
     }
     .navbarCollapse {
@@ -120,17 +128,18 @@ const styledElement = styled(NavbarMobile)`
     }
   }
   .contact {
-    width: 84px;
-    height: 268px;
+    width: 48px;
+    height: 168px;
     position: fixed;
-    top: 8.2%;
-    left: 2.9vw;
+    top: 64px;
+    left: 8px;
     .iconBox {
-      width: 84px;
-      height: 84px;
-      margin-bottom: 8px;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
       position: relative;
       z-index: 200;
+
       &:hover {
         cursor: pointer;
         opacity: 0.9;
@@ -165,4 +174,4 @@ const styledElement = styled(NavbarMobile)`
   }
 `;
 
-export default styledElement;
+export default withRouter(styledElement);

@@ -12,7 +12,7 @@ const navbar = (props) => {
 
   const handleTrans = () => {
     setTranslate(false);
-    // console.log(props);
+    console.log(props);
     props.history.push("/english");
   };
 
