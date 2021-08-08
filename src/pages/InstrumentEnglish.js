@@ -14,37 +14,37 @@ const Instrument = (props) => {
       <div className="machineBox">
         <div className="machine mr">
           <img src="http://localhost:3000/machine/m001.png" alt="m001" />
-          <p className="name">切斷機</p>
+          <p className="name">cut-off machine</p>
         </div>
         <div className="machine ml">
           <img src="http://localhost:3000/machine/m002.png" alt="m002" />
-          <p className="name">洗床</p>
+          <p className="name">Milling machine</p>
         </div>
       </div>
       <div className="machineBox">
         <div className="machine mr">
           <img src="http://localhost:3000/machine/m003.png" alt="m003" />
-          <p className="name">放電機</p>
+          <p className="name">electric discharge machine</p>
         </div>
         <div className="machine ml">
           <img src="http://localhost:3000/machine/m004.png" alt="m004" />
-          <p className="name">車床</p>
+          <p className="name">lathe</p>
         </div>
       </div>
       <div className="machineBox">
         <div className="machine mr">
           <img src="http://localhost:3000/machine/m005.png" alt="m005" />
-          <p className="name">頂針研磨切斷機</p>
+          <p className="name">pin cutting off machine</p>
         </div>
         <div className="machine ml">
           <img src="http://localhost:3000/machine/m006.png" alt="m006" />
-          <p className="name">磨床</p>
+          <p className="name">Grinding machine</p>
         </div>
       </div>
       <div className="machineBox mb">
         <div className="machine mr">
           <img src="http://localhost:3000/machine/m007.png" alt="m007" />
-          <p className="name">鋸床</p>
+          <p className="name">saw machine</p>
         </div>
         <div className="machine none"></div>
       </div>
@@ -80,6 +80,7 @@ const styledElement = styled(Instrument)`
         align-items: center;
         border-radius: 6px;
         background-color: #365d77;
+        padding: 10px;
         img {
           width: 280px;
           margin-right: 5%;

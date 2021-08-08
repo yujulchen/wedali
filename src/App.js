@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import HomePageEnglish from "./pages/HomePageEnglish";
 import Product from "./pages/Product";
 import Instrument from "./pages/Instrument";
+import InstrumentEnglish from "./pages/InstrumentEnglish";
 import About from "./pages/About";
 import AboutEnglish from "./pages/AboutEnglish";
 import Contact from "./pages/Contact";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/product" component={Product} />
           <Route path="/english/product" component={Product} />
           <Route path="/instrument" component={Instrument} />
+          <Route path="/english/instrument" component={InstrumentEnglish} />
           <Route path="/about" component={About} />
           <Route path="/english/about" component={AboutEnglish} />
           <Route path="/contact" component={Contact} />
