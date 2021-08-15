@@ -14,7 +14,7 @@ const Footer = ({ className }) => {
 
 const styledElement = styled(Footer)`
   background: #00283b;
-  width: 100vw;
+  width: 100%;
   height: 70px;
   color: #fff;
   position: fixed;

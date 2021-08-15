@@ -96,6 +96,7 @@ const NavbarMobileEnglish = (props) => {
 
 const styledElement = styled(NavbarMobileEnglish)`
   .navbar {
+    position: fixed;
     background: #00283b;
     width: 100%;
     height: 54px;

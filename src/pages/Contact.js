@@ -39,6 +39,7 @@ const Contact = (props) => {
 const styledElement = styled(Contact)`
   padding: 70px 8.3vw;
   animation: ${fadeInAnimation} 2s;
+  overflow-x: hidden;
   .title {
     width: 100%;
     margin-top: 60px;
@@ -48,7 +49,7 @@ const styledElement = styled(Contact)`
     position: relative;
     .contactBackground {
       width: 100vw;
-      height: 60vh;
+      height: 65vh;
       background-color: #00283b;
       margin-left: -8.3vw;
       position: absolute;
@@ -57,7 +58,8 @@ const styledElement = styled(Contact)`
     }
     .contactInside {
       width: 100%;
-      height: 60%;
+      height: 100%;
+      margin-bottom: 10vh;
       display: flex;
       justify-context: space-between;
       .map {
@@ -66,7 +68,7 @@ const styledElement = styled(Contact)`
       .contactText {
         width: 40vw;
         height: 100%;
-        padding-top: 14vh;
+        padding-top: 1.8rem;
         padding-left: 6vw;
         p {
           color: #fff;

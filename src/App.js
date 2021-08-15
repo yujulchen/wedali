@@ -13,6 +13,7 @@ import FooterMobile from "./pages/components/FooterMobile";
 import HomePage from "./pages/HomePage";
 import HomePageEnglish from "./pages/HomePageEnglish";
 import HomePageMobile from "./pages/HomePageMobile";
+import HomePageMobileEnglish from "./pages/HomePageMobileEnglish";
 import Product from "./pages/Product";
 import ProductMobile from "./pages/ProductMobile";
 import Instrument from "./pages/Instrument";
@@ -65,7 +66,11 @@ function App() {
         )}
         <Switch>
           <Route exact path="/mobile" component={HomePageMobile} />
-          <Route exact path="/mobile/english" component={HomePageMobile} />
+          <Route
+            exact
+            path="/mobile/english"
+            component={HomePageMobileEnglish}
+          />
           <Route path="/mobile/product" component={ProductMobile} />
           <Route path="/mobile/english/product" component={ProductMobile} />
           <Route path="/mobile/instrument" component={InstrumentMobile} />

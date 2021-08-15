@@ -68,7 +68,7 @@ const styledElement = styled(navbar)`
   .navbar {
     background: #00283b;
     position: fixed;
-    width: 100vw;
+    width: 100%;
     height: 70px;
     padding-left: 36px;
     padding-right: 36px;
@@ -101,7 +101,7 @@ const styledElement = styled(navbar)`
     height: 268px;
     margin-right: 5%;
     position: fixed;
-    top: 8.2%;
+    top: 100px;
     left: 2.9vw;
     z-index: 9999;
     .iconBox {
