@@ -13,7 +13,7 @@ const fadeInAnimation = keyframes`${fadeIn}`;
 const slideInUpAnimation = keyframes`${slideInUp}`;
 const flipInXAnimation = keyframes`${flipInX}`;
 
-const AboutMobile = (props) => {
+const AboutMobileEnglish = (props) => {
   const { className } = props;
 
   return (
@@ -74,7 +74,7 @@ const AboutMobile = (props) => {
   );
 };
 
-const styledElement = styled(AboutMobile)`
+const styledElement = styled(AboutMobileEnglish)`
   padding: 56px;
   overflow: hidden;
   .intentionBox {

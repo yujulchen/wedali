@@ -2,13 +2,7 @@ import * as React from "react";
 
 function CarAccessories(props) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={140}
-      height={140}
-      viewBox="0 0 140 140"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" {...props}>
       <g transform="translate(-260 -501)">
         <circle
           data-name="Ellipse 29"

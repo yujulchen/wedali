@@ -16,9 +16,11 @@ import HomePageMobile from "./pages/HomePageMobile";
 import HomePageMobileEnglish from "./pages/HomePageMobileEnglish";
 import Product from "./pages/Product";
 import ProductMobile from "./pages/ProductMobile";
+import ProductMobileEnglish from "./pages/ProductMobileEnglish";
 import Instrument from "./pages/Instrument";
 import InstrumentEnglish from "./pages/InstrumentEnglish";
 import InstrumentMobile from "./pages/InstrumentMobile";
+import InstrumentMobileEnglish from "./pages/InstrumentMobileEnglish";
 import About from "./pages/About";
 import AboutEnglish from "./pages/AboutEnglish";
 import AboutMobile from "./pages/AboutMobile";
@@ -68,13 +70,15 @@ function App() {
             component={HomePageMobileEnglish}
           />
           <Route path="/mobile/product" component={ProductMobile} />
-          <Route path="/mobile/english/product" component={ProductMobile} />
+          <Route
+            path="/mobile/english/product"
+            component={ProductMobileEnglish}
+          />
           <Route path="/mobile/instrument" component={InstrumentMobile} />
           <Route
             path="/mobile/english/instrument"
-            component={InstrumentMobile}
+            component={InstrumentMobileEnglish}
           />
-          <Route path="/mobile/english/product" component={InstrumentMobile} />
           <Route path="/mobile/about" component={AboutMobile} />
           <Route path="/mobile/english/about" component={AboutMobileEnglish} />
           <Route path="/mobile/contact" component={ContactMobile} />

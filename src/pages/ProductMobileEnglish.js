@@ -1,8 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
-import ProductMobileTitle from "./components/svg/ProductMobileTitle";
-import CarAccessories from "./components/svg/CarAccessories";
-import CCCAccessories from "./components/svg/CCCAccessories";
+import ProductMobileTitleEnglish from "./components/svg/ProductMobileTitleEnglish";
 
 import p001 from "../products/p001.jpg";
 import p002 from "../products/p002.jpg";
@@ -27,15 +25,19 @@ import p020 from "../products/p020.jpg";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 
-const ProductMobile = (props) => {
+const ProductMobileEnglish = (props) => {
   const { className } = props;
   return (
     <div className={className}>
       <div className="title">
-        <ProductMobileTitle style={{ width: "100%" }} />
+        <ProductMobileTitleEnglish style={{ width: "100%" }} />
       </div>
       <div className="categoryTitle">
-        <CarAccessories />
+        <p>
+          Car
+          <br />
+          Accessories
+        </p>
       </div>
       <div className="pictureBox">
         <div className="imageBox">
@@ -93,7 +95,11 @@ const ProductMobile = (props) => {
           <img src={p018} alt="p018" />
         </div>
         <div className="categoryTitle">
-          <CCCAccessories />
+          <p>
+            3C
+            <br />
+            Accessories
+          </p>
         </div>
         <div className="imageBox">
           <img src={p019} alt="p019" />
@@ -106,7 +112,7 @@ const ProductMobile = (props) => {
   );
 };
 
-const styledElement = styled(ProductMobile)`
+const styledElement = styled(ProductMobileEnglish)`
   padding: 56px;
   overflow: hidden;
   animation: ${fadeInAnimation} 2s;
@@ -118,6 +124,13 @@ const styledElement = styled(ProductMobile)`
     width: 120px;
     height: 120px;
     margin: 0 auto;
+    background: #00283b;
+    border-radius: 50%;
+    p {
+      padding-top: 25%;
+      color: #fff;
+      text-align: center;
+    }
   }
   .pictureBox {
     width: 100%;

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
-import InstrumentMobileTitle from "./components/svg/InstrumentMobileTitle";
+import InstrumentMobileTitleEnglish from "./components/svg/InstrumentMobileTitleEnglish";
 
 import m001 from "../machine/m001.png";
 import m002 from "../machine/m002.png";
@@ -13,19 +13,15 @@ import m007 from "../machine/m007.png";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 
-const InstrumentMobile = (props) => {
+const InstrumentMobileEnglish = (props) => {
   const { className } = props;
   const [clickItem, setClickItem] = useState("");
   const [show, setShow] = useState(true);
 
-  useEffect(() => {
-    console.log(clickItem, show);
-  }, [clickItem, show]);
-
   return (
     <div className={className}>
       <div className="title">
-        <InstrumentMobileTitle style={{ width: "100%" }} />
+        <InstrumentMobileTitleEnglish style={{ width: "100%" }} />
       </div>
       <div className="pictureBox">
         <div className="imageBox">
@@ -47,7 +43,7 @@ const InstrumentMobile = (props) => {
                 setShow(!show);
               }}
             >
-              切斷機
+              <span>Cut-off machine</span>
             </div>
           )}
         </div>
@@ -70,7 +66,7 @@ const InstrumentMobile = (props) => {
                 setShow(!show);
               }}
             >
-              洗床
+              <span>Milling machine</span>
             </div>
           )}
         </div>
@@ -93,7 +89,7 @@ const InstrumentMobile = (props) => {
                 setShow(!show);
               }}
             >
-              放電機
+              <span>Electric discharge machine</span>
             </div>
           )}
         </div>
@@ -116,7 +112,7 @@ const InstrumentMobile = (props) => {
                 setShow(!show);
               }}
             >
-              車床
+              <sapn>Lathe</sapn>
             </div>
           )}
         </div>
@@ -139,7 +135,7 @@ const InstrumentMobile = (props) => {
                 setShow(!show);
               }}
             >
-              頂針研磨切斷機
+              <span>Pin cutting off machine</span>
             </div>
           )}
         </div>
@@ -162,7 +158,7 @@ const InstrumentMobile = (props) => {
                 setShow(!show);
               }}
             >
-              磨床
+              <span>Grinding machine</span>
             </div>
           )}
         </div>
@@ -185,7 +181,7 @@ const InstrumentMobile = (props) => {
                 setShow(!show);
               }}
             >
-              鋸床
+              <span>Saw machine</span>
             </div>
           )}
         </div>
@@ -194,7 +190,7 @@ const InstrumentMobile = (props) => {
   );
 };
 
-const styledElement = styled(InstrumentMobile)`
+const styledElement = styled(InstrumentMobileEnglish)`
   padding: 56px;
   overflow: hidden;
   animation: ${fadeInAnimation} 2s;
@@ -213,6 +209,9 @@ const styledElement = styled(InstrumentMobile)`
       display: flex;
       justify-content: center;
       width: 100%;
+      span {
+        text-align: center;
+      }
     }
     .imageBox {
       margin: 12px 12px 48px 12px;

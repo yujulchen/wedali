@@ -11,7 +11,7 @@ const rotateInAnimation = keyframes`${rotateIn}`;
 const fadeInAnimation = keyframes`${fadeIn}`;
 const slideInUpAnimation = keyframes`${slideInUp}`;
 
-const HomePage = (props) => {
+const HomePageEnglish = (props) => {
   const { className } = props;
   const [showText, setShowText] = useState("");
   const [clickItem, setClickItem] = useState("");
@@ -113,7 +113,7 @@ const HomePage = (props) => {
   );
 };
 
-const styledElement = styled(HomePage)`
+const styledElement = styled(HomePageEnglish)`
   padding: 70px 8.3vw;
   .gearBox {
     display: flex;

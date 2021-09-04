@@ -2,9 +2,17 @@ import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
 import InstrumentTitle from "./components/svg/InstrumentTitle";
 
+import m001 from "../machine/m001.png";
+import m002 from "../machine/m002.png";
+import m003 from "../machine/m003.png";
+import m004 from "../machine/m004.png";
+import m005 from "../machine/m005.png";
+import m006 from "../machine/m006.png";
+import m007 from "../machine/m007.png";
+
 const fadeInAnimation = keyframes`${fadeIn}`;
 
-const Instrument = (props) => {
+const InstrumentEnglish = (props) => {
   const { className } = props;
   return (
     <div className={className}>
@@ -13,38 +21,38 @@ const Instrument = (props) => {
       </div>
       <div className="machineBox">
         <div className="machine mr">
-          <img src="http://localhost:3000/machine/m001.png" alt="m001" />
-          <p className="name">cut-off machine</p>
+          <img src={m001} alt="m001" />
+          <p className="name">Cut-off machine</p>
         </div>
         <div className="machine ml">
-          <img src="http://localhost:3000/machine/m002.png" alt="m002" />
+          <img src={m002} alt="m002" />
           <p className="name">Milling machine</p>
         </div>
       </div>
       <div className="machineBox">
         <div className="machine mr">
-          <img src="http://localhost:3000/machine/m003.png" alt="m003" />
-          <p className="name">electric discharge machine</p>
+          <img src={m003} alt="m003" />
+          <p className="name">Electric discharge machine</p>
         </div>
         <div className="machine ml">
-          <img src="http://localhost:3000/machine/m004.png" alt="m004" />
-          <p className="name">lathe</p>
+          <img src={m004} alt="m004" />
+          <p className="name">Lathe</p>
         </div>
       </div>
       <div className="machineBox">
         <div className="machine mr">
-          <img src="http://localhost:3000/machine/m005.png" alt="m005" />
-          <p className="name">pin cutting off machine</p>
+          <img src={m005} alt="m005" />
+          <p className="name">Pin cutting off machine</p>
         </div>
         <div className="machine ml">
-          <img src="http://localhost:3000/machine/m006.png" alt="m006" />
+          <img src={m006} alt="m006" />
           <p className="name">Grinding machine</p>
         </div>
       </div>
       <div className="machineBox mb">
         <div className="machine mr">
-          <img src="http://localhost:3000/machine/m007.png" alt="m007" />
-          <p className="name">saw machine</p>
+          <img src={m007} alt="m007" />
+          <p className="name">Saw machine</p>
         </div>
         <div className="machine none"></div>
       </div>
@@ -52,7 +60,7 @@ const Instrument = (props) => {
   );
 };
 
-const styledElement = styled(Instrument)`
+const styledElement = styled(InstrumentEnglish)`
   padding: 70px 8.3vw;
   animation: ${fadeInAnimation} 2s;
   .title {

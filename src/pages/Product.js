@@ -4,11 +4,33 @@ import ProductTitle from "./components/svg/ProductTitle";
 import CarAccessories from "./components/svg/CarAccessories";
 import CCCAccessories from "./components/svg/CCCAccessories";
 
+import p001 from "../products/p001.jpg";
+import p002 from "../products/p002.jpg";
+import p003 from "../products/p003.jpg";
+import p004 from "../products/p004.jpg";
+import p005 from "../products/p005.jpg";
+import p006 from "../products/p006.jpg";
+import p007 from "../products/p007.jpg";
+import p008 from "../products/p008.jpg";
+import p009 from "../products/p009.jpg";
+import p010 from "../products/p010.jpg";
+import p011 from "../products/p011.jpg";
+import p012 from "../products/p012.jpg";
+import p013 from "../products/p013.jpg";
+import p014 from "../products/p014.jpg";
+import p015 from "../products/p015.jpg";
+import p016 from "../products/p016.jpg";
+import p017 from "../products/p017.jpg";
+import p018 from "../products/p018.jpg";
+import p019 from "../products/p019.jpg";
+import p020 from "../products/p020.jpg";
+
 const fadeInAnimation = keyframes`${fadeIn}`;
 const zoomInAnimation = keyframes`${zoomIn}`;
 
 const Product = (props) => {
   const { className } = props;
+
   return (
     <div className={className}>
       <div className="title">
@@ -20,78 +42,78 @@ const Product = (props) => {
         </div>
         <div className="productBox noPadding">
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p001.jpg" alt="p001" />
+            <img src={p001} alt="p001" />
           </div>
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p002.jpg" alt="p002" />
+            <img src={p002} alt="p002" />
           </div>
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p003.jpg" alt="p003" />
-          </div>
-        </div>
-      </div>
-      <div className="session">
-        <div className="productBox">
-          <div className="imageBox">
-            <img src="http://localhost:3000/products/p004.jpg" alt="p004" />
-          </div>
-          <div className="imageBox">
-            <img src="http://localhost:3000/products/p005.jpg" alt="p005" />
-          </div>
-          <div className="imageBox">
-            <img src="http://localhost:3000/products/p006.jpg" alt="p006" />
+            <img src={p003} alt="p003" />
           </div>
         </div>
       </div>
       <div className="session">
         <div className="productBox">
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p007.jpg" alt="p007" />
+            <img src={p004} alt="p004" />
           </div>
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p008.jpg" alt="p008" />
+            <img src={p005} alt="p005" />
           </div>
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p009.jpg" alt="p009" />
-          </div>
-        </div>
-      </div>
-      <div className="session">
-        <div className="productBox">
-          <div className="imageBox">
-            <img src="http://localhost:3000/products/p010.jpg" alt="p010" />
-          </div>
-          <div className="imageBox">
-            <img src="http://localhost:3000/products/p011.jpg" alt="p011" />
-          </div>
-          <div className="imageBox">
-            <img src="http://localhost:3000/products/p012.jpg" alt="p012" />
+            <img src={p006} alt="p006" />
           </div>
         </div>
       </div>
       <div className="session">
         <div className="productBox">
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p013.jpg" alt="p013" />
+            <img src={p007} alt="p007" />
           </div>
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p014.jpg" alt="p014" />
+            <img src={p008} alt="p008" />
           </div>
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p015.jpg" alt="p015" />
+            <img src={p009} alt="p009" />
           </div>
         </div>
       </div>
       <div className="session">
         <div className="productBox">
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p016.jpg" alt="p016" />
+            <img src={p010} alt="p010" />
           </div>
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p017.jpg" alt="p017" />
+            <img src={p011} alt="p011" />
           </div>
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p018.jpg" alt="p018" />
+            <img src={p012} alt="p012" />
+          </div>
+        </div>
+      </div>
+      <div className="session">
+        <div className="productBox">
+          <div className="imageBox">
+            <img src={p013} alt="p013" />
+          </div>
+          <div className="imageBox">
+            <img src={p014} alt="p014" />
+          </div>
+          <div className="imageBox">
+            <img src={p015} alt="p015" />
+          </div>
+        </div>
+      </div>
+      <div className="session">
+        <div className="productBox">
+          <div className="imageBox">
+            <img src={p016} alt="p016" />
+          </div>
+          <div className="imageBox">
+            <img src={p017} alt="p017" />
+          </div>
+          <div className="imageBox">
+            <img src={p018} alt="p018" />
           </div>
         </div>
       </div>
@@ -104,10 +126,10 @@ const Product = (props) => {
         </div>
         <div className="productBox noPadding">
           <div className="imageBox">
-            <img src="http://localhost:3000/products/p019.jpg" alt="p019" />
+            <img src={p019} alt="p019" />
           </div>
           <div className="imageBox imgMargin">
-            <img src="http://localhost:3000/products/p020.jpg" alt="p020" />
+            <img src={p020} alt="p020" />
           </div>
         </div>
       </div>

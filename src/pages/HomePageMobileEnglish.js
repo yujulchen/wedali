@@ -8,7 +8,7 @@ import MainProcessFlowMEnglish from "./components/svg/MainProcessFlowMEnglish";
 const rotateInAnimation = keyframes`${rotateIn}`;
 const fadeInAnimation = keyframes`${fadeIn}`;
 
-const HomePageMobile = (props) => {
+const HomePageMobileEnglish = (props) => {
   const { className } = props;
   const [showTop, setShowTop] = useState(false);
   const [showText, setShowText] = useState("");
@@ -117,7 +117,7 @@ const HomePageMobile = (props) => {
   );
 };
 
-const styledElement = styled(HomePageMobile)`
+const styledElement = styled(HomePageMobileEnglish)`
   padding: 56px;
   overflow: hidden;
   .gearBox {

@@ -5,7 +5,7 @@ import Map from "./components/Map";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 
-const ContactMobile = (props) => {
+const ContactMobileEnglish = (props) => {
   const { className } = props;
   return (
     <div className={className}>
@@ -36,7 +36,7 @@ const ContactMobile = (props) => {
   );
 };
 
-const styledElement = styled(ContactMobile)`
+const styledElement = styled(ContactMobileEnglish)`
   padding: 54px 56px 0 56px;
   animation: ${fadeInAnimation} 2s;
   overflow-x: hidden;
