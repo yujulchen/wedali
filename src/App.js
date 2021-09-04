@@ -53,7 +53,7 @@ function App() {
     <Router>
       <OnDesktop>
         {isLoading ? (
-          <Loading />
+          <Loading isLoading={isLoading} />
         ) : (
           <>
             <Navbar setTranslate={setTranslate} />
@@ -76,7 +76,7 @@ function App() {
       </OnDesktop>
       <OnMobile>
         {isLoading ? (
-          <LoadingM />
+          <LoadingM isLoading={isLoading} />
         ) : (
           <>
             <NavbarMobile setTranslate={setTranslate} />

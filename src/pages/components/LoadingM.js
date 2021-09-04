@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 
@@ -5,7 +6,12 @@ import LoadingImage from "../../machine/1884165.png";
 import LoadingIcon from "../../machine/Ripple-200px.gif";
 
 const LoadingM = (props) => {
-  const { className } = props;
+  const { className, isLoading } = props;
+
+  useEffect(() => {
+    if (isLoading) props.history.push("/mobile");
+  }, [isLoading]);
+
   return (
     <div className={className}>
       <div className="imageBox">
