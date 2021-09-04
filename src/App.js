@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { layoutGenerator } from "react-break";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -8,6 +8,8 @@ import Navbar from "./pages/components/Navbar";
 import NavbarEnglish from "./pages/components/NavbarEnglish";
 import NavbarMobile from "./pages/components/NavbarMobile";
 import NavbarMobileEnglish from "./pages/components/NavbarMobileEnglish";
+import Loading from "./pages/components/Loading";
+import LoadingM from "./pages/components/LoadingM";
 import Footer from "./pages/components/Footer";
 import FooterMobile from "./pages/components/FooterMobile";
 import HomePage from "./pages/HomePage";
@@ -39,55 +41,77 @@ function App() {
   const OnMobile = layout.is("mobile");
   const OnDesktop = layout.is("desktop");
   const [translate, setTranslate] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+  }, []);
 
   return (
     <Router>
       <OnDesktop>
-        <Navbar setTranslate={setTranslate} />
-        {!translate && <NavbarEnglish setTranslate={setTranslate} />}
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/english" component={HomePageEnglish} />
-          <Route path="/product" component={Product} />
-          <Route path="/english/product" component={Product} />
-          <Route path="/instrument" component={Instrument} />
-          <Route path="/english/instrument" component={InstrumentEnglish} />
-          <Route path="/about" component={About} />
-          <Route path="/english/about" component={AboutEnglish} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/english/contact" component={ContactEnglish} />
-        </Switch>
-        <Footer />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <Navbar setTranslate={setTranslate} />
+            {!translate && <NavbarEnglish setTranslate={setTranslate} />}
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/english" component={HomePageEnglish} />
+              <Route path="/product" component={Product} />
+              <Route path="/english/product" component={Product} />
+              <Route path="/instrument" component={Instrument} />
+              <Route path="/english/instrument" component={InstrumentEnglish} />
+              <Route path="/about" component={About} />
+              <Route path="/english/about" component={AboutEnglish} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/english/contact" component={ContactEnglish} />
+            </Switch>
+            <Footer />
+          </>
+        )}
       </OnDesktop>
       <OnMobile>
-        <NavbarMobile setTranslate={setTranslate} />
-        {!translate && <NavbarMobileEnglish setTranslate={setTranslate} />}
-        <Switch>
-          <Route exact path="/mobile" component={HomePageMobile} />
-          <Route
-            exact
-            path="/mobile/english"
-            component={HomePageMobileEnglish}
-          />
-          <Route path="/mobile/product" component={ProductMobile} />
-          <Route
-            path="/mobile/english/product"
-            component={ProductMobileEnglish}
-          />
-          <Route path="/mobile/instrument" component={InstrumentMobile} />
-          <Route
-            path="/mobile/english/instrument"
-            component={InstrumentMobileEnglish}
-          />
-          <Route path="/mobile/about" component={AboutMobile} />
-          <Route path="/mobile/english/about" component={AboutMobileEnglish} />
-          <Route path="/mobile/contact" component={ContactMobile} />
-          <Route
-            path="/mobile/english/contact"
-            component={ContactMobileEnglish}
-          />
-        </Switch>
-        <FooterMobile />
+        {isLoading ? (
+          <LoadingM />
+        ) : (
+          <>
+            <NavbarMobile setTranslate={setTranslate} />
+            {!translate && <NavbarMobileEnglish setTranslate={setTranslate} />}
+            <Switch>
+              <Route exact path="/mobile" component={HomePageMobile} />
+              <Route
+                exact
+                path="/mobile/english"
+                component={HomePageMobileEnglish}
+              />
+              <Route path="/mobile/product" component={ProductMobile} />
+              <Route
+                path="/mobile/english/product"
+                component={ProductMobileEnglish}
+              />
+              <Route path="/mobile/instrument" component={InstrumentMobile} />
+              <Route
+                path="/mobile/english/instrument"
+                component={InstrumentMobileEnglish}
+              />
+              <Route path="/mobile/about" component={AboutMobile} />
+              <Route
+                path="/mobile/english/about"
+                component={AboutMobileEnglish}
+              />
+              <Route path="/mobile/contact" component={ContactMobile} />
+              <Route
+                path="/mobile/english/contact"
+                component={ContactMobileEnglish}
+              />
+            </Switch>
+            <FooterMobile />
+          </>
+        )}
       </OnMobile>
     </Router>
   );
