@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgComponent(props) {
+function About(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -80,4 +80,4 @@ function SvgComponent(props) {
   );
 }
 
-export default SvgComponent;
+export default About;

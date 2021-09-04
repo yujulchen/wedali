@@ -22,9 +22,11 @@ import InstrumentMobile from "./pages/InstrumentMobile";
 import About from "./pages/About";
 import AboutEnglish from "./pages/AboutEnglish";
 import AboutMobile from "./pages/AboutMobile";
+import AboutMobileEnglish from "./pages/AboutMobileEnglish";
 import Contact from "./pages/Contact";
 import ContactEnglish from "./pages/ContactEnglish";
 import ContactMobile from "./pages/ContactMobile";
+import ContactMobileEnglish from "./pages/ContactMobileEnglish";
 
 const layout = layoutGenerator({
   mobile: 0,
@@ -74,9 +76,12 @@ function App() {
           />
           <Route path="/mobile/english/product" component={InstrumentMobile} />
           <Route path="/mobile/about" component={AboutMobile} />
-          <Route path="/mobile/english/about" component={AboutMobile} />
+          <Route path="/mobile/english/about" component={AboutMobileEnglish} />
           <Route path="/mobile/contact" component={ContactMobile} />
-          <Route path="/mobile/english/contact" component={ContactMobile} />
+          <Route
+            path="/mobile/english/contact"
+            component={ContactMobileEnglish}
+          />
         </Switch>
         <FooterMobile />
       </OnMobile>

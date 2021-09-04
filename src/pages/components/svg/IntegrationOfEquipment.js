@@ -2,13 +2,7 @@ import * as React from "react";
 
 function IntegrationOfEquipment(props) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={318}
-      height={303}
-      viewBox="0 0 318 303"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 318 303" {...props}>
       <defs>
         <filter
           id="IntegrationOfEquipment_a"

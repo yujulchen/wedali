@@ -1,13 +1,13 @@
 import styled, { keyframes } from "styled-components";
 import { fadeIn, slideInUp, flipInX } from "react-animations";
 
-import Intention from "./components/svg/Intention";
-import AboutMobileTitle from "./components/svg/AboutMobileTitle";
+import IntentionEnglish from "./components/svg/IntentionEnglish";
+import AboutMobileTitleEnglish from "./components/svg/AboutMobileTitleEnglish";
 import Logo from "./components/svg/Logo";
-import QualityMobileTitle from "./components/svg/QualityMobileTitle";
-import IntegrationOfEquipment from "./components/svg/IntegrationOfEquipment";
-import TechnicalService from "./components/svg/TechnicalService";
-import ContinuousDevelopment from "./components/svg/ContinuousDevelopment";
+import QualityMobileTitleEnglish from "./components/svg/QualityMobileTitleEnglish";
+import IntegrationOfEquipmentEnglish from "./components/svg/IntegrationOfEquipmentEnglish";
+import TechnicalServiceEnglish from "./components/svg/TechnicalServiceEnglish";
+import ContinuousDevelopmentEnglish from "./components/svg/ContinuousDevelopmentEnglish";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 const slideInUpAnimation = keyframes`${slideInUp}`;
@@ -19,11 +19,11 @@ const AboutMobile = (props) => {
   return (
     <div className={className}>
       <div className="intentionBox">
-        <Intention style={{ width: "100%" }} />
+        <IntentionEnglish style={{ width: "100%" }} />
       </div>
       <div className="section_one">
         <div className="title">
-          <AboutMobileTitle style={{ width: "100%" }} />
+          <AboutMobileTitleEnglish style={{ width: "100%" }} />
         </div>
         <div className="background">
           <div className="aboutLogo">
@@ -32,13 +32,23 @@ const AboutMobile = (props) => {
           <div className="aboutBox">
             <div className="aboutText">
               <p>
-                維大利企業社是獨資企業，于西元1927年正式成立，本公司長期承製各式塑膠製品、益智玩具、汽車零配件塑膠射出成型代工品、家電塑膠射出代工品、電子3C資訊塑膠射出代工品等...上市櫃公司各式塑膠產品射出成型、精密塑膠射出件產品及塑膠射出模具的設計開發。
-              </p>
-              <p>
-                優良的品質是我們一貫的宗旨，長久以來即秉持「品質第一、價格合理、交貨準時、服務效率高」的經營理念，在每一組產品製造過程中，從「設計」、「開模」、「射出」在每一道的工作流程裡，我們均專注於每一個細節，並超越客戶所要求的標準，公司真誠希望新老客户前來考察、指導。
-              </p>
-              <p>
-                我們以創新的工藝,優秀的品質,合理的價格,為客戶提供至誠的服務,並期望與您真誠愉快的合作。
+                Weidali enterprise is a single-venture company. Founded in 1927,
+                the enterprise has collaborated with Mold Design in plastic
+                molecules production for many years. Producing intellectually
+                stimulating toys, automotive components, household electronics
+                plastic equipment, 3C equipment, etc.… the company is on the
+                stock market and has various injection molding products,
+                precision injection products, and plastic injection equipment
+                development. High quality products are Weidali’s goal; what they
+                value the most is long term quality, reasonable prices, punctual
+                product delivery, and effective service. During the production
+                process of each product, from design, modelling, and injection,
+                Weidali focuses on every small detail and exceed all client’s
+                expectations. The company hopes that all new and old costumers
+                will be able to audit and guide. Weidali releases new products
+                of excellent quality and at a reasonable price, providing the
+                best service to their clients, they hope that they can have a
+                smooth and fast collaboration with prospective clients.
               </p>
             </div>
           </div>
@@ -46,17 +56,17 @@ const AboutMobile = (props) => {
       </div>
       <div className="section_two">
         <div className="qualityTitle">
-          <QualityMobileTitle style={{ width: "100%" }} />
+          <QualityMobileTitleEnglish style={{ width: "100%" }} />
         </div>
         <div className="qualityBox">
           <div className="qualityItem">
-            <IntegrationOfEquipment style={{ width: "100%" }} />
+            <IntegrationOfEquipmentEnglish style={{ width: "100%" }} />
           </div>
           <div className="qualityItem">
-            <TechnicalService style={{ width: "100%" }} />
+            <TechnicalServiceEnglish style={{ width: "100%" }} />
           </div>
           <div className="qualityItem">
-            <ContinuousDevelopment style={{ width: "100%" }} />
+            <ContinuousDevelopmentEnglish style={{ width: "100%" }} />
           </div>
         </div>
       </div>
@@ -83,15 +93,14 @@ const styledElement = styled(AboutMobile)`
     }
     .background {
       width: 100vw;
-      height: 900px;
       left: 0;
       margin: 0 -56px;
       background-color: #00283b;
       position: relative;
       z-index: -100;
-      padding: 0 56px;
+      padding: 0 56px 56px 56px;
       .aboutLogo {
-        padding: 48px 0;
+        padding: 56px 0 48px 0;
       }
       .aboutBox {
         width: 100%;

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
-import ContactMobileTitle from "./components/svg/ContactMobileTitle";
+import ContactMobileTitleEnglish from "./components/svg/ContactMobileTitleEnglish";
 import Map from "./components/Map";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -11,18 +11,21 @@ const ContactMobile = (props) => {
     <div className={className}>
       <div className="contactBackground">
         <div className="title">
-          <ContactMobileTitle style={{ width: "100%" }} />
+          <ContactMobileTitleEnglish style={{ width: "100%" }} />
         </div>
         <div className="contactText">
-          <p>電話：</p>
+          <p>Telephone:</p>
           <p>&emsp;&emsp;&emsp;02-26776184</p>
-          <p>傳真：</p>
+          <p>Fax:</p>
           <p>&emsp;&emsp;&emsp;02-26776164</p>
-          <p>信箱：</p>
+          <p>Email:</p>
           <p>&emsp;&emsp;&emsp;q121135.q60@gmail.com</p>
-          <p>地址：</p>
-          <p>&emsp;&emsp;&emsp;新北市鶯歌區建國路367巷2號</p>
-          <p>統編：</p>
+          <p>Address:</p>
+          <p>
+            &emsp;&emsp;&emsp;No. 2, Ln. 367, Jianguo Rd., Yingge Dist., New
+            Taipei City, Taiwan (R.O.C.)
+          </p>
+          <p>GUI Number:</p>
           <p>&emsp;&emsp;&emsp;98675099</p>
         </div>
         <div className="map">

@@ -9,6 +9,11 @@ const style = {
   height: "62vh",
 };
 
+const Mobile = {
+  width: "100vw",
+  height: "62vh",
+};
+
 const DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
@@ -16,7 +21,8 @@ const DefaultIcon = L.icon({
   iconAnchor: [12, 36],
 });
 
-function Map() {
+function Map(props) {
+  const { isMobile } = props;
   const mapRef = useRef(null);
   useEffect(() => {
     mapRef.current = L.map("mapId", {
@@ -39,7 +45,7 @@ function Map() {
     return () => mapRef.current.remove();
   }, []);
 
-  return <div id="mapId" style={style}></div>;
+  return <div id="mapId" style={isMobile ? Mobile : style}></div>;
 }
 
 export default Map;

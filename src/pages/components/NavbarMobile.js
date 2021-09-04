@@ -144,7 +144,8 @@ const styledElement = styled(NavbarMobile)`
       margin-bottom: 12px;
       position: relative;
       z-index: 200;
-
+      box-shadow: -1px 18px 2px white;
+      border-radius: 50px;
       &:hover {
         cursor: pointer;
         opacity: 0.9;

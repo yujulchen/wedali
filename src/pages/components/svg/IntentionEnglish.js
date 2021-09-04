@@ -4,8 +4,6 @@ function IntentionEnglish(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={655.5}
-      height={595.5}
       viewBox="0 0 655.5 595.5"
       {...props}
     >
