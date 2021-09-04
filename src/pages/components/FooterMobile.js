@@ -17,9 +17,10 @@ const styledElement = styled(Footer)`
   width: 100vw;
   height: 54px;
   color: #fff;
-  position: fixed;
+  position: relative;
   bottom: 0;
   text-align: center;
+  z-index: 100;
   .footerText {
     line-height: 54px;
   }

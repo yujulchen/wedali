@@ -6,7 +6,7 @@ import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
 const style = {
   width: "50vw",
-  height: "60vh",
+  height: "62vh",
 };
 
 const DefaultIcon = L.icon({
@@ -34,7 +34,10 @@ function Map() {
     L.marker([24.949708174343698, 121.33883086982388], {
       icon: DefaultIcon,
     }).addTo(mapRef.current);
-  });
+
+    // unmount map function
+    return () => mapRef.current.remove();
+  }, []);
 
   return <div id="mapId" style={style}></div>;
 }

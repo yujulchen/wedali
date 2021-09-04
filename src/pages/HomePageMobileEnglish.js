@@ -11,72 +11,46 @@ const fadeInAnimation = keyframes`${fadeIn}`;
 const HomePageMobile = (props) => {
   const { className } = props;
   const [showTop, setShowTop] = useState(false);
-  const [showTopText, setShowTopText] = useState("");
+  const [showText, setShowText] = useState("");
   const [showCenter, setShowCenter] = useState(false);
-  const [showCenterText, setShowCenterText] = useState("");
   const [showBottom, setShowBottom] = useState(false);
-  const [showBottomText, setShowBottomText] = useState("");
   const [clickItem, setClickItem] = useState("");
-  const topItem = (
-    <div className="introductionBox">
-      <div className="introductionText">
-        <div className="introductionSpan">
-          Mold Design possesses many years of product design experience in
-          various categories. Our staff has a deep understanding of all
-          materials and structures implemented in our projects. Our design
-          department can provide the most professional suggestions, helping
-          customers to economize, increase productiveness and reduce the risk of
-          encountering eventual development issues.
-        </div>
-      </div>
-    </div>
-  );
-  const centerItem = (
-    <div className="introductionBox">
-      <div className="introductionText">
-        <div className="introductionSpan">
-          The injection of microscopic plastic molecules inside of a machine,
-          plastic molecules are heated, and pressure is added inside of the
-          pattern, then the mold cools down, giving customers the product they
-          desire.
-        </div>
-      </div>
-    </div>
-  );
-  const bottomItem = (
-    <div className="introductionBox">
-      <div className="introductionText">
-        <div className="introductionSpan">
-          Mold Manufacture’s processing department has CNC washing machines,
-          electric discharge machining, and brook bed grinders. All of these
-          components have been properly regulated, have a tolerance margin, and
-          have undergone assemble testing.
-        </div>
-      </div>
-    </div>
-  );
 
   useEffect(() => {
-    if (clickItem === "top") setShowTop(true);
-    if (clickItem !== "top") setShowTop(false);
-    if (clickItem === "center") setShowCenter(true);
-    if (clickItem !== "center") setShowCenter(false);
-    if (clickItem === "bottom") setShowBottom(true);
-    if (clickItem !== "bottom") setShowBottom(false);
+    clickItem === "top" ? setShowTop(true) : setShowTop(false);
+    clickItem === "center" ? setShowCenter(true) : setShowCenter(false);
+    clickItem === "bottom" ? setShowBottom(true) : setShowBottom(false);
   }, [clickItem]);
 
   useEffect(() => {
-    showTop ? setShowTopText(topItem) : setShowTopText("");
-    showCenter ? setShowCenterText(centerItem) : setShowCenterText("");
-    showBottom ? setShowBottomText(bottomItem) : setShowBottomText("");
+    showTop &&
+      setShowText(
+        `Mold Design possesses many years of product design experience in
+        various categories. Our staff has a deep understanding of all
+        materials and structures implemented in our projects. Our design
+        department can provide the most professional suggestions, helping
+        customers to economize, increase productiveness and reduce the risk of
+        encountering eventual development issues.`
+      );
+    showCenter &&
+      setShowText(
+        `The injection of microscopic plastic molecules inside of a machine,
+        plastic molecules are heated, and pressure is added inside of the
+        pattern, then the mold cools down, giving customers the product they
+        desire.`
+      );
+    showBottom &&
+      setShowText(
+        `The injection of microscopic plastic molecules inside of a machine,
+        plastic molecules are heated, and pressure is added inside of the
+        pattern, then the mold cools down, giving customers the product they
+        desire.`
+      );
   }, [showTop, showCenter, showBottom]);
 
   return (
     <div className={className}>
-      <div
-        className="gearBox"
-        style={{ marginBottom: showTop ? "33rem" : "0" }}
-      >
+      <div className="gearBox">
         <div className="gear">
           <Gear className="iconTop" onClick={() => setClickItem("top")} />
           <div className="gearText" onClick={() => setClickItem("top")}>
@@ -85,13 +59,17 @@ const HomePageMobile = (props) => {
               <p className="gearTitle">DESIGN</p>
             </div>
           </div>
-          {showTopText}
+        </div>
+        <div
+          className="introductionBox"
+          style={{ display: showTop ? "block" : "none" }}
+        >
+          <div className="introductionText">
+            <div className="introductionSpan">{showText}</div>
+          </div>
         </div>
       </div>
-      <div
-        className="gearBox"
-        style={{ marginBottom: showCenter ? "18rem" : "0" }}
-      >
+      <div className="gearBox">
         <div className="gear">
           <Gear className="iconTop" onClick={() => setClickItem("center")} />
           <div className="gearText" onClick={() => setClickItem("center")}>
@@ -100,13 +78,17 @@ const HomePageMobile = (props) => {
               <p className="gearTitle">MOLDING</p>
             </div>
           </div>
-          {showCenterText}
+        </div>
+        <div
+          className="introductionBox"
+          style={{ display: showCenter ? "block" : "none" }}
+        >
+          <div className="introductionText">
+            <div className="introductionSpan">{showText}</div>
+          </div>
         </div>
       </div>
-      <div
-        className="gearBox"
-        style={{ marginBottom: showBottom ? "27rem" : "56px" }}
-      >
+      <div className="gearBox">
         <div className="gear">
           <Gear className="iconTop" onClick={() => setClickItem("bottom")} />
           <div className="gearText" onClick={() => setClickItem("bottom")}>
@@ -115,7 +97,14 @@ const HomePageMobile = (props) => {
               <p className="gearTitle">MANUFACTURE</p>
             </div>
           </div>
-          {showBottomText}
+        </div>
+        <div
+          className="introductionBox"
+          style={{ display: showBottom ? "block" : "none" }}
+        >
+          <div className="introductionText">
+            <div className="introductionSpan">{showText}</div>
+          </div>
         </div>
       </div>
       <div className="mainProcess">
@@ -132,14 +121,12 @@ const styledElement = styled(HomePageMobile)`
   padding: 56px;
   overflow: hidden;
   .gearBox {
-    display: flex;
-    justify-content: center;
     width: 100%;
-    margin: 2rem 0 10rem 0;
     .gear {
       position: relative;
       width: 100%;
       height: 240px;
+      z-index: 5;
       .iconTop {
         width: 100%;
         height: 100%;
@@ -150,7 +137,6 @@ const styledElement = styled(HomePageMobile)`
       }
       .gearText {
         width: 100%;
-        height: 100%;
         display: flex;
         justify-content: center;
         position: absolute;
@@ -170,24 +156,22 @@ const styledElement = styled(HomePageMobile)`
           }
         }
       }
-      .introductionBox {
-        position: relative;
-        top: -8rem;
-        margin: 0 auto 300px auto;
-        z-index: -20;
-        .introductionText {
-          background-color: #00283b;
-          border-radius: 8px;
-          padding: 40% 19px 19px 19px;
-        }
-        .introductionSpan {
-          color: #fff;
-        }
+    }
+    .introductionBox {
+      margin: -7rem 0 3rem 0;
+      padding: 0 0 0 2vw;
+      .introductionText {
+        background-color: #00283b;
+        border-radius: 8px;
+        padding: 40% 19px 19px 19px;
+      }
+      .introductionSpan {
+        color: #fff;
       }
     }
   }
   .mainProcess {
-    margin-bottom: 60px;
+    margin: 60px 0;
     .mainProcessTitle {
       margin: 36px 0;
     }

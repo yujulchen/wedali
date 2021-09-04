@@ -47,9 +47,10 @@ const styledElement = styled(Contact)`
   }
   .contactBox {
     position: relative;
+    height: 75vh;
     .contactBackground {
       width: 100vw;
-      height: 65vh;
+      padding: 30rem;
       background-color: #00283b;
       margin-left: -8.3vw;
       position: absolute;
@@ -62,8 +63,9 @@ const styledElement = styled(Contact)`
       margin-bottom: 10vh;
       display: flex;
       justify-context: space-between;
+      padding-top: 10vh;
       .map {
-        margin-top: -4vh;
+        margin-top: -15vh;
       }
       .contactText {
         width: 40vw;

@@ -39,11 +39,8 @@ function App() {
   return (
     <Router>
       <OnDesktop>
-        {translate ? (
-          <Navbar setTranslate={setTranslate} />
-        ) : (
-          <NavbarEnglish setTranslate={setTranslate} />
-        )}
+        <Navbar setTranslate={setTranslate} />
+        {!translate && <NavbarEnglish setTranslate={setTranslate} />}
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/english" component={HomePageEnglish} />
@@ -59,11 +56,8 @@ function App() {
         <Footer />
       </OnDesktop>
       <OnMobile>
-        {translate ? (
-          <NavbarMobile setTranslate={setTranslate} />
-        ) : (
-          <NavbarMobileEnglish setTranslate={setTranslate} />
-        )}
+        <NavbarMobile setTranslate={setTranslate} />
+        {!translate && <NavbarMobileEnglish setTranslate={setTranslate} />}
         <Switch>
           <Route exact path="/mobile" component={HomePageMobile} />
           <Route

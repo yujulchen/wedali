@@ -1,5 +1,5 @@
 import Navbar from "react-bootstrap/Navbar";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter, Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 import Logo from "./svg/Logo";
@@ -7,11 +7,16 @@ import Phone from "./svg/Phone";
 import Fax from "./svg/Fax";
 import Mail from "./svg/Mail";
 
+function GetUrl() {
+  const location = useLocation();
+  return location.pathname.includes("/english");
+}
+
 const navbarEnglish = (props) => {
   const { setTranslate, className } = props;
+  setTranslate(!GetUrl());
 
   const handleTrans = () => {
-    setTranslate(true);
     props.history.push("/");
   };
 
@@ -44,13 +49,13 @@ const navbarEnglish = (props) => {
         <div className="iconBox">
           <a href="tel:+886-2-26776184">
             <Phone />
-            <div className="iconText">電話:02-26776184</div>
+            <div className="iconText">Phone:02-26776184</div>
           </a>
         </div>
         <div className="iconBox">
           <a href="fax:+886-2-26776164">
             <Fax />
-            <div className="iconText">傳真:02-26776164</div>
+            <div className="iconText">Fax:02-26776164</div>
           </a>
         </div>
         <div className="iconBox">

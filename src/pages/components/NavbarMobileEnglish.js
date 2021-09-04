@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter, Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 import Logo from "./svg/Logo";
@@ -8,9 +8,16 @@ import Phone from "./svg/Phone";
 import Fax from "./svg/Fax";
 import Mail from "./svg/Mail";
 
+function GetUrl() {
+  const location = useLocation();
+  return location.pathname.includes("/mobile/english");
+}
+
 const NavbarMobileEnglish = (props) => {
   const { setTranslate, className } = props;
   const [show, setShow] = useState(false);
+  let url = GetUrl();
+  setTranslate(!url);
 
   const handleTrans = () => {
     setTranslate(true);

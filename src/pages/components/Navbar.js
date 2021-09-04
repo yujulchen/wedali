@@ -1,5 +1,5 @@
 import Navbar from "react-bootstrap/Navbar";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter, Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 import Logo from "./svg/Logo";
@@ -7,12 +7,16 @@ import Phone from "./svg/Phone";
 import Fax from "./svg/Fax";
 import Mail from "./svg/Mail";
 
+function GetUrl(setTranslate) {
+  const location = useLocation();
+  setTranslate(!location.pathname.includes("/english"));
+}
+
 const navbar = (props) => {
   const { setTranslate, className } = props;
+  GetUrl(setTranslate);
 
   const handleTrans = () => {
-    setTranslate(false);
-    console.log(props);
     props.history.push("/english");
   };
 
