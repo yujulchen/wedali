@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { useHistory } from "react-router-dom";
 import { fadeIn, slideInUp, flipInX } from "react-animations";
 import Intention from "./components/svg/Intention";
 import AboutTitle from "./components/svg/AboutTitle";
@@ -7,13 +8,21 @@ import QualityTitle from "./components/svg/QualityTitle";
 import IntegrationOfEquipment from "./components/svg/IntegrationOfEquipment";
 import TechnicalService from "./components/svg/TechnicalService";
 import ContinuousDevelopment from "./components/svg/ContinuousDevelopment";
+import { useEffect } from "react";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 const slideInUpAnimation = keyframes`${slideInUp}`;
 const flipInXAnimation = keyframes`${flipInX}`;
 
 const About = (props) => {
-  const { className } = props;
+  const { className, brkPnt } = props;
+  const history = useHistory();
+
+  useEffect(() => {
+    console.log(history);
+    console.log(brkPnt);
+  }, [brkPnt]);
+
   return (
     <div className={className}>
       <div className="intentionBox">

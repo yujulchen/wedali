@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { layoutGenerator } from "react-break";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import { throttle } from "lodash";
 
 // Pages
 import Navbar from "./pages/components/Navbar";
@@ -40,13 +46,30 @@ const layout = layoutGenerator({
 function App() {
   const OnMobile = layout.is("mobile");
   const OnDesktop = layout.is("desktop");
+  const [brkPnt, setBrkPnt] = useState("");
   const [translate, setTranslate] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
+
+  const getDeviceConfig = (width) => {
+    if (width >= 992) {
+      return "desktop";
+    } else {
+      return "mobile";
+    }
+  };
+
+  useEffect(() => {
+    const calcInnerWidth = throttle(function () {
+      setBrkPnt(getDeviceConfig(window.innerWidth));
+    }, 200);
+    window.addEventListener("resize", calcInnerWidth);
+    return () => window.removeEventListener("resize", calcInnerWidth);
+  }, [brkPnt]);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 5000);
+    }, 3000);
   }, []);
 
   return (
@@ -56,6 +79,7 @@ function App() {
           <Loading isLoading={isLoading} />
         ) : (
           <>
+            {brkPnt === "desktop" && <Redirect to="/" />}
             <Navbar setTranslate={setTranslate} />
             {!translate && <NavbarEnglish setTranslate={setTranslate} />}
             <Switch>
@@ -79,6 +103,7 @@ function App() {
           <LoadingM isLoading={isLoading} />
         ) : (
           <>
+            {brkPnt === "mobile" && <Redirect to="/mobile" />}
             <NavbarMobile setTranslate={setTranslate} />
             {!translate && <NavbarMobileEnglish setTranslate={setTranslate} />}
             <Switch>
