@@ -10,14 +10,14 @@ import Mail from "./svg/Mail";
 
 function GetUrl() {
   const location = useLocation();
-  return location.pathname.includes("/mobile/english");
+  return !location.pathname.includes("/mobile/english");
 }
 
 const NavbarMobileEnglish = (props) => {
   const { setTranslate, className } = props;
   const [show, setShow] = useState(false);
   let url = GetUrl();
-  setTranslate(!url);
+  setTranslate(url);
 
   const handleTrans = () => {
     setTranslate(true);
