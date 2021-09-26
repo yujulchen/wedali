@@ -85,8 +85,6 @@ function App() {
             ) : (
               <NavbarEnglish setTranslate={setTranslate} />
             )}
-            {/* <Navbar setTranslate={setTranslate} />
-            {!translate && <NavbarEnglish setTranslate={setTranslate} />} */}
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/english" component={HomePageEnglish} />

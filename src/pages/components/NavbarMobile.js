@@ -20,7 +20,7 @@ const NavbarMobile = (props) => {
   setTranslate(url);
 
   const handleTrans = () => {
-    // console.log(props);
+    setTranslate(false);
     props.history.push("/mobile/english");
   };
 
