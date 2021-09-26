@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/wedali/static/css/main.bd925871.chunk.css",
-    "main.js": "/wedali/static/js/main.e6375db0.chunk.js",
-    "main.js.map": "/wedali/static/js/main.e6375db0.chunk.js.map",
+    "main.css": "/wedali/static/css/main.2ef578e6.chunk.css",
+    "main.js": "/wedali/static/js/main.deac6eda.chunk.js",
+    "main.js.map": "/wedali/static/js/main.deac6eda.chunk.js.map",
     "runtime-main.js": "/wedali/static/js/runtime-main.8183541c.js",
     "runtime-main.js.map": "/wedali/static/js/runtime-main.8183541c.js.map",
     "static/css/2.b4ebbe46.chunk.css": "/wedali/static/css/2.b4ebbe46.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.47d3f6de.chunk.js.map": "/wedali/static/js/3.47d3f6de.chunk.js.map",
     "index.html": "/wedali/index.html",
     "static/css/2.b4ebbe46.chunk.css.map": "/wedali/static/css/2.b4ebbe46.chunk.css.map",
-    "static/css/main.bd925871.chunk.css.map": "/wedali/static/css/main.bd925871.chunk.css.map",
+    "static/css/main.2ef578e6.chunk.css.map": "/wedali/static/css/main.2ef578e6.chunk.css.map",
     "static/js/2.30bc227a.chunk.js.LICENSE.txt": "/wedali/static/js/2.30bc227a.chunk.js.LICENSE.txt",
     "static/media/1884165.ab0f3008.png": "/wedali/static/media/1884165.ab0f3008.png",
     "static/media/5.12dede22.jpg": "/wedali/static/media/5.12dede22.jpg",
@@ -49,7 +49,7 @@
     "static/js/runtime-main.8183541c.js",
     "static/css/2.b4ebbe46.chunk.css",
     "static/js/2.30bc227a.chunk.js",
-    "static/css/main.bd925871.chunk.css",
-    "static/js/main.e6375db0.chunk.js"
+    "static/css/main.2ef578e6.chunk.css",
+    "static/js/main.deac6eda.chunk.js"
   ]
 }
