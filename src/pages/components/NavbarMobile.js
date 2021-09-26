@@ -16,8 +16,8 @@ function GetUrl() {
 const NavbarMobile = (props) => {
   const { setTranslate, className } = props;
   const [show, setShow] = useState(false);
-
-  setTranslate(GetUrl());
+  let url = GetUrl();
+  setTranslate(url);
 
   const handleTrans = () => {
     // console.log(props);

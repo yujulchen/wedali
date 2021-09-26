@@ -24,6 +24,7 @@ function Map(props) {
       center: [24.949708174343698, 121.33883086982388],
       zoom: 16,
       zoomControl: false,
+      closePopupOnClick: false,
       layers: [
         L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
           attribution:
@@ -34,7 +35,7 @@ function Map(props) {
 
     L.popup({
       closeButton: false,
-      autoClose: false,
+      keepInView: true,
     })
       .setLatLng([24.949708174343698, 121.33883086982388])
       .setContent(
