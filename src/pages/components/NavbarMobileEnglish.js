@@ -141,13 +141,13 @@ const styledElement = styled(NavbarMobileEnglish)`
     position: fixed;
     top: 64px;
     left: 8px;
+    z-index: 20;
     .iconBox {
       width: 48px;
       height: 48px;
       margin-bottom: 12px;
       position: relative;
-      z-index: 200;
-
+      z-index: 10;
       &:hover {
         cursor: pointer;
         opacity: 0.9;
@@ -159,16 +159,16 @@ const styledElement = styled(NavbarMobileEnglish)`
       .iconText {
         visibility: hidden;
         padding-left: 42px;
-        width: 400%;
-        height: 84px;
+        width: 600%;
+        height: 48px;
         color: #fff;
         background-color: #00283b;
-        font-size: 18px;
-        line-height: 84px;
+        font-size: 14px;
+        line-height: 48px;
         text-align: center;
         position: absolute;
-        top: 0px;
-        left: 42px;
+        top: 18px;
+        left: 0px;
         z-index: -2;
         border-radius: 10px;
         opacity: 0;
