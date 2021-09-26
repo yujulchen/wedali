@@ -28,9 +28,9 @@ const ContactMobileEnglish = (props) => {
           <p>GUI Number:</p>
           <p>&emsp;&emsp;&emsp;98675099</p>
         </div>
-        <div className="map">
-          <Map isMobile={true} />
-        </div>
+      </div>
+      <div className="map">
+        <Map isMobile={true} isEnglish={true} />
       </div>
     </div>
   );
@@ -47,7 +47,7 @@ const styledElement = styled(ContactMobileEnglish)`
     background-color: #00283b;
     position: relative;
     z-index: -100;
-    padding: 0 80px 56px 80px;
+    padding: 0 80px 1px 80px;
     .title {
       padding: 36px 0;
     }
@@ -58,9 +58,14 @@ const styledElement = styled(ContactMobileEnglish)`
         color: #fff;
       }
     }
-    .map {
-      margin: 0 0 0 -80px;
-    }
+  }
+  .map {
+    width: "100vw";
+    padding-bottom: 56px;
+    margin: 0 -56px;
+    position: relative;
+    z-index: 10;
+    background: #00283b;
   }
 `;
 

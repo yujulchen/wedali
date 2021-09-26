@@ -16,7 +16,7 @@ const ContactEnglish = (props) => {
         <div className="contactBackground"></div>
         <div className="contactInside">
           <div className="map">
-            <Map />
+            <Map isEnglish={true} />
           </div>
           <div className="contactText">
             <p>Telephone:</p>

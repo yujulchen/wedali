@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
 import "leaflet/dist/leaflet.css";
 import * as L from "leaflet";
-import icon from "leaflet/dist/images/marker-icon.png";
-import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
 const style = {
   width: "50vw",
@@ -14,23 +12,18 @@ const Mobile = {
   height: "62vh",
 };
 
-const DefaultIcon = L.icon({
-  iconUrl: icon,
-  shadowUrl: iconShadow,
-  iconSize: [24, 36],
-  iconAnchor: [12, 36],
-});
+const addressEng = `No. 2, Ln. 367, Jianguo Rd., Yingge Dist., New
+Taipei City, Taiwan (R.O.C.)`;
 
 function Map(props) {
-  const { isMobile } = props;
+  const { isMobile, isEnglish } = props;
   const mapRef = useRef(null);
+
   useEffect(() => {
     mapRef.current = L.map("mapId", {
       center: [24.949708174343698, 121.33883086982388],
       zoom: 16,
       zoomControl: false,
-      dragging: !L.Browser.mobile,
-      tap: !L.Browser.mobile,
       layers: [
         L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
           attribution:
@@ -39,9 +32,17 @@ function Map(props) {
       ],
     });
 
-    L.marker([24.949708174343698, 121.33883086982388], {
-      icon: DefaultIcon,
-    }).addTo(mapRef.current);
+    L.popup({
+      closeButton: false,
+      autoClose: false,
+    })
+      .setLatLng([24.949708174343698, 121.33883086982388])
+      .setContent(
+        `<a href="https://goo.gl/maps/6AYRxwjfnb47NaSPA" target="_blank" style="text-decoration:none; color:#48d1cc">${
+          isEnglish ? addressEng : "新北市鶯歌區建國路367巷2號"
+        }</a>`
+      )
+      .openOn(mapRef.current);
 
     // unmount map function
     return () => mapRef.current.remove();
