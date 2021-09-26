@@ -79,7 +79,8 @@ function App() {
           <Loading isLoading={isLoading} />
         ) : (
           <>
-            {brkPnt === "desktop" && <Redirect to="/" />}
+            {brkPnt === "desktop" && translate && <Redirect to="/" />}
+            {brkPnt === "desktop" && !translate && <Redirect to="/english" />}
             {translate ? (
               <Navbar setTranslate={setTranslate} />
             ) : (
@@ -106,7 +107,10 @@ function App() {
           <LoadingM isLoading={isLoading} />
         ) : (
           <>
-            {brkPnt === "mobile" && <Redirect to="/mobile" />}
+            {brkPnt === "mobile" && translate && <Redirect to="/mobile" />}
+            {brkPnt === "mobile" && !translate && (
+              <Redirect to="/mobile/english" />
+            )}
             {translate ? (
               <NavbarMobile setTranslate={setTranslate} />
             ) : (
