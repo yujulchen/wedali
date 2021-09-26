@@ -80,8 +80,13 @@ function App() {
         ) : (
           <>
             {brkPnt === "desktop" && <Redirect to="/" />}
-            <Navbar setTranslate={setTranslate} />
-            {!translate && <NavbarEnglish setTranslate={setTranslate} />}
+            {translate ? (
+              <Navbar setTranslate={setTranslate} />
+            ) : (
+              <NavbarEnglish setTranslate={setTranslate} />
+            )}
+            {/* <Navbar setTranslate={setTranslate} />
+            {!translate && <NavbarEnglish setTranslate={setTranslate} />} */}
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/english" component={HomePageEnglish} />
@@ -104,8 +109,11 @@ function App() {
         ) : (
           <>
             {brkPnt === "mobile" && <Redirect to="/mobile" />}
-            <NavbarMobile setTranslate={setTranslate} />
-            {!translate && <NavbarMobileEnglish setTranslate={setTranslate} />}
+            {translate ? (
+              <NavbarMobile setTranslate={setTranslate} />
+            ) : (
+              <NavbarMobileEnglish setTranslate={setTranslate} />
+            )}
             <Switch>
               <Route exact path="/mobile" component={HomePageMobile} />
               <Route
