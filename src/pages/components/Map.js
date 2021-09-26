@@ -29,6 +29,8 @@ function Map(props) {
       center: [24.949708174343698, 121.33883086982388],
       zoom: 16,
       zoomControl: false,
+      dragging: !L.Browser.mobile,
+      tap: !L.Browser.mobile,
       layers: [
         L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
           attribution:
