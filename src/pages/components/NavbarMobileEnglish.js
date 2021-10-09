@@ -10,18 +10,16 @@ import Mail from "./svg/Mail";
 
 function GetUrl() {
   const location = useLocation();
-  return !location.pathname.includes("/mobile/english");
+  return location.pathname.includes("/english");
 }
 
 const NavbarMobileEnglish = (props) => {
   const { setTranslate, className } = props;
   const [show, setShow] = useState(false);
-  let url = GetUrl();
-  setTranslate(url);
+  setTranslate(!GetUrl());
 
   const handleTrans = () => {
-    setTranslate(true);
-    props.history.push("/mobile");
+    props.history.push("/");
   };
 
   return (
@@ -34,7 +32,7 @@ const NavbarMobileEnglish = (props) => {
         expanded={show}
       >
         <Navbar.Brand className="logoBox">
-          <Link to="/mobile">
+          <Link to="/english">
             <Logo />
           </Link>
         </Navbar.Brand>
@@ -51,19 +49,16 @@ const NavbarMobileEnglish = (props) => {
           style={{ width: "100vw" }}
         >
           <Nav>
-            <Link to="/mobile/english/product" onClick={() => setShow(false)}>
+            <Link to="/english/product" onClick={() => setShow(false)}>
               Product
             </Link>
-            <Link
-              to="/mobile/english/instrument"
-              onClick={() => setShow(false)}
-            >
+            <Link to="/english/instrument" onClick={() => setShow(false)}>
               Instrument
             </Link>
-            <Link to="/mobile/english/about" onClick={() => setShow(false)}>
+            <Link to="/english/about" onClick={() => setShow(false)}>
               About
             </Link>
-            <Link to="/mobile/english/contact" onClick={() => setShow(false)}>
+            <Link to="/english/contact" onClick={() => setShow(false)}>
               Contact
             </Link>
           </Nav>

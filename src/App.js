@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { layoutGenerator } from "react-break";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { throttle } from "lodash";
 
 // Pages
@@ -46,7 +41,7 @@ const layout = layoutGenerator({
 function App() {
   const OnMobile = layout.is("mobile");
   const OnDesktop = layout.is("desktop");
-  const [brkPnt, setBrkPnt] = useState("");
+  const [brkPnt, setBrkPnt] = useState("desktop");
   const [translate, setTranslate] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -74,80 +69,79 @@ function App() {
 
   return (
     <Router>
-      <OnDesktop>
-        {isLoading ? (
-          <Loading isLoading={isLoading} />
-        ) : (
-          <>
-            {brkPnt === "desktop" && translate && <Redirect to="/" />}
-            {brkPnt === "desktop" && !translate && <Redirect to="/english" />}
-            {translate ? (
-              <Navbar setTranslate={setTranslate} />
-            ) : (
-              <NavbarEnglish setTranslate={setTranslate} />
-            )}
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/english" component={HomePageEnglish} />
-              <Route path="/product" component={Product} />
-              <Route path="/english/product" component={Product} />
-              <Route path="/instrument" component={Instrument} />
-              <Route path="/english/instrument" component={InstrumentEnglish} />
-              <Route path="/about" component={About} />
-              <Route path="/english/about" component={AboutEnglish} />
-              <Route path="/contact" component={Contact} />
-              <Route path="/english/contact" component={ContactEnglish} />
-            </Switch>
-            <Footer />
-          </>
-        )}
-      </OnDesktop>
-      <OnMobile>
-        {isLoading ? (
+      <Switch>
+        {brkPnt === "desktop" ? (
+          isLoading ? (
+            <Loading isLoading={isLoading} />
+          ) : (
+            <OnDesktop>
+              {translate && (
+                <>
+                  <Navbar setTranslate={setTranslate} />
+                  <Route exact path="/" component={HomePage} />
+                  <Route path="/product" component={Product} />
+                  <Route path="/instrument" component={Instrument} />
+                  <Route path="/about" component={About} />
+                  <Route path="/contact" component={Contact} />
+                </>
+              )}
+              {!translate && (
+                <>
+                  <NavbarEnglish setTranslate={setTranslate} />
+                  <Route exact path="/english" component={HomePageEnglish} />
+                  <Route path="/english/product" component={Product} />
+                  <Route
+                    path="/english/instrument"
+                    component={InstrumentEnglish}
+                  />
+                  <Route path="/english/about" component={AboutEnglish} />
+                  <Route path="/english/contact" component={ContactEnglish} />
+                </>
+              )}
+              <Footer />
+            </OnDesktop>
+          )
+        ) : isLoading ? (
           <LoadingM isLoading={isLoading} />
         ) : (
-          <>
-            {brkPnt === "mobile" && translate && <Redirect to="/mobile" />}
-            {brkPnt === "mobile" && !translate && (
-              <Redirect to="/mobile/english" />
+          <OnMobile>
+            {translate && (
+              <>
+                <NavbarMobile setTranslate={setTranslate} />
+                <Route exact path="/" component={HomePageMobile} />
+                <Route path="/product" component={ProductMobile} />
+                <Route path="/instrument" component={InstrumentMobile} />
+                <Route path="/about" component={AboutMobile} />
+                <Route path="/contact" component={ContactMobile} />
+              </>
             )}
-            {translate ? (
-              <NavbarMobile setTranslate={setTranslate} />
-            ) : (
-              <NavbarMobileEnglish setTranslate={setTranslate} />
+            {!translate && (
+              <>
+                <NavbarMobileEnglish setTranslate={setTranslate} />
+                <Route
+                  exact
+                  path="/english"
+                  component={HomePageMobileEnglish}
+                />
+                <Route
+                  path="/english/product"
+                  component={ProductMobileEnglish}
+                />
+                <Route
+                  path="/english/instrument"
+                  component={InstrumentMobileEnglish}
+                />
+                <Route path="/english/about" component={AboutMobileEnglish} />
+                <Route
+                  path="/english/contact"
+                  component={ContactMobileEnglish}
+                />
+              </>
             )}
-            <Switch>
-              <Route exact path="/mobile" component={HomePageMobile} />
-              <Route
-                exact
-                path="/mobile/english"
-                component={HomePageMobileEnglish}
-              />
-              <Route path="/mobile/product" component={ProductMobile} />
-              <Route
-                path="/mobile/english/product"
-                component={ProductMobileEnglish}
-              />
-              <Route path="/mobile/instrument" component={InstrumentMobile} />
-              <Route
-                path="/mobile/english/instrument"
-                component={InstrumentMobileEnglish}
-              />
-              <Route path="/mobile/about" component={AboutMobile} />
-              <Route
-                path="/mobile/english/about"
-                component={AboutMobileEnglish}
-              />
-              <Route path="/mobile/contact" component={ContactMobile} />
-              <Route
-                path="/mobile/english/contact"
-                component={ContactMobileEnglish}
-              />
-            </Switch>
             <FooterMobile />
-          </>
+          </OnMobile>
         )}
-      </OnMobile>
+      </Switch>
     </Router>
   );
 }

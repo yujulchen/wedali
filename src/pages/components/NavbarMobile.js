@@ -8,20 +8,18 @@ import Phone from "./svg/Phone";
 import Fax from "./svg/Fax";
 import Mail from "./svg/Mail";
 
-function GetUrl() {
+function GetUrl(setTranslate) {
   const location = useLocation();
-  return !location.pathname.includes("/mobile/english");
+  setTranslate(!location.pathname.includes("/english"));
 }
 
 const NavbarMobile = (props) => {
   const { setTranslate, className } = props;
   const [show, setShow] = useState(false);
-  let url = GetUrl();
-  setTranslate(url);
+  GetUrl(setTranslate);
 
   const handleTrans = () => {
-    setTranslate(false);
-    props.history.push("/mobile/english");
+    props.history.push("/english");
   };
 
   return (
@@ -34,7 +32,7 @@ const NavbarMobile = (props) => {
         expanded={show}
       >
         <Navbar.Brand className="logoBox">
-          <Link to="/mobile">
+          <Link to="/">
             <Logo />
           </Link>
         </Navbar.Brand>
@@ -51,16 +49,16 @@ const NavbarMobile = (props) => {
           style={{ width: "100vw" }}
         >
           <Nav>
-            <Link to="/mobile/product" onClick={() => setShow(false)}>
+            <Link to="/product" onClick={() => setShow(false)}>
               產品介紹
             </Link>
-            <Link to="/mobile/instrument" onClick={() => setShow(false)}>
+            <Link to="/instrument" onClick={() => setShow(false)}>
               機具設備
             </Link>
-            <Link to="/mobile/about" onClick={() => setShow(false)}>
+            <Link to="/about" onClick={() => setShow(false)}>
               關於我們
             </Link>
-            <Link to="/mobile/contact" onClick={() => setShow(false)}>
+            <Link to="/contact" onClick={() => setShow(false)}>
               聯絡我們
             </Link>
           </Nav>
