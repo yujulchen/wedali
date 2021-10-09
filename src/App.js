@@ -75,7 +75,7 @@ function App() {
             {translate && (
               <>
                 <Navbar setTranslate={setTranslate} />
-                <Route path="/" component={HomePage} />
+                <Route exact path="/" component={HomePage} />
                 <Route path="/product" component={Product} />
                 <Route path="/instrument" component={Instrument} />
                 <Route path="/about" component={About} />
@@ -103,7 +103,7 @@ function App() {
             {translate && (
               <>
                 <NavbarMobile setTranslate={setTranslate} />
-                <Route path="/" component={HomePageMobile} />
+                <Route exact path="/" component={HomePageMobile} />
                 <Route path="/product" component={ProductMobile} />
                 <Route path="/instrument" component={InstrumentMobile} />
                 <Route path="/about" component={AboutMobile} />
