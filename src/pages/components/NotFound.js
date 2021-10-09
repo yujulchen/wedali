@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { withRouter, Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
@@ -11,7 +11,6 @@ function GetUrl() {
 
 const NotFound = (props) => {
   const { className } = props;
-  const [url, setUrl] = useState("");
   const getLink = GetUrl();
 
   useEffect(() => {
