@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { layoutGenerator } from "react-break";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { throttle } from "lodash";
+import { Route, Switch, HashRouter } from "react-router-dom";
 
 // Pages
 import Navbar from "./pages/components/Navbar";
@@ -32,6 +31,7 @@ import Contact from "./pages/Contact";
 import ContactEnglish from "./pages/ContactEnglish";
 import ContactMobile from "./pages/ContactMobile";
 import ContactMobileEnglish from "./pages/ContactMobileEnglish";
+import NotFound from "./pages/components/NotFound";
 
 const layout = layoutGenerator({
   mobile: 0,
@@ -66,7 +66,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <HashRouter>
       {brkPnt === "desktop" && isLoading && <Loading isLoading={isLoading} />}
       {brkPnt === "mobile" && isLoading && <LoadingM isLoading={isLoading} />}
       <Switch>
@@ -136,8 +136,9 @@ function App() {
             <FooterMobile />
           </OnMobile>
         )}
+        <Route component={NotFound} />
       </Switch>
-    </Router>
+    </HashRouter>
   );
 }
 
