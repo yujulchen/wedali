@@ -45,21 +45,19 @@ function App() {
   const [translate, setTranslate] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getDeviceConfig = (width) => {
-    if (width >= 992) {
-      return "desktop";
+  const getDeviceConfig = () => {
+    if (window.innerWidth >= 992) {
+      setBrkPnt("desktop");
     } else {
-      return "mobile";
+      setBrkPnt("mobile");
     }
   };
 
   useEffect(() => {
-    const calcInnerWidth = throttle(function () {
-      setBrkPnt(getDeviceConfig(window.innerWidth));
-    }, 200);
-    window.addEventListener("resize", calcInnerWidth);
-    return () => window.removeEventListener("resize", calcInnerWidth);
-  }, [brkPnt]);
+    window.addEventListener("resize", getDeviceConfig);
+    getDeviceConfig();
+    return () => window.removeEventListener("resize", getDeviceConfig);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -69,46 +67,43 @@ function App() {
 
   return (
     <Router>
+      {brkPnt === "desktop" && isLoading && <Loading isLoading={isLoading} />}
+      {brkPnt === "mobile" && isLoading && <LoadingM isLoading={isLoading} />}
       <Switch>
-        {brkPnt === "desktop" ? (
-          isLoading ? (
-            <Loading isLoading={isLoading} />
-          ) : (
-            <OnDesktop>
-              {translate && (
-                <>
-                  <Navbar setTranslate={setTranslate} />
-                  <Route exact path="/" component={HomePage} />
-                  <Route path="/product" component={Product} />
-                  <Route path="/instrument" component={Instrument} />
-                  <Route path="/about" component={About} />
-                  <Route path="/contact" component={Contact} />
-                </>
-              )}
-              {!translate && (
-                <>
-                  <NavbarEnglish setTranslate={setTranslate} />
-                  <Route exact path="/english" component={HomePageEnglish} />
-                  <Route path="/english/product" component={Product} />
-                  <Route
-                    path="/english/instrument"
-                    component={InstrumentEnglish}
-                  />
-                  <Route path="/english/about" component={AboutEnglish} />
-                  <Route path="/english/contact" component={ContactEnglish} />
-                </>
-              )}
-              <Footer />
-            </OnDesktop>
-          )
-        ) : isLoading ? (
-          <LoadingM isLoading={isLoading} />
-        ) : (
+        {!isLoading && brkPnt === "desktop" && (
+          <OnDesktop>
+            {translate && (
+              <>
+                <Navbar setTranslate={setTranslate} />
+                <Route path="/" component={HomePage} />
+                <Route path="/product" component={Product} />
+                <Route path="/instrument" component={Instrument} />
+                <Route path="/about" component={About} />
+                <Route path="/contact" component={Contact} />
+              </>
+            )}
+            {!translate && (
+              <>
+                <NavbarEnglish setTranslate={setTranslate} />
+                <Route exact path="/english" component={HomePageEnglish} />
+                <Route path="/english/product" component={Product} />
+                <Route
+                  path="/english/instrument"
+                  component={InstrumentEnglish}
+                />
+                <Route path="/english/about" component={AboutEnglish} />
+                <Route path="/english/contact" component={ContactEnglish} />
+              </>
+            )}
+            <Footer />
+          </OnDesktop>
+        )}
+        {!isLoading && brkPnt === "mobile" && (
           <OnMobile>
             {translate && (
               <>
                 <NavbarMobile setTranslate={setTranslate} />
-                <Route exact path="/" component={HomePageMobile} />
+                <Route path="/" component={HomePageMobile} />
                 <Route path="/product" component={ProductMobile} />
                 <Route path="/instrument" component={InstrumentMobile} />
                 <Route path="/about" component={AboutMobile} />
