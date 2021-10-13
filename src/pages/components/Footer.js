@@ -17,7 +17,7 @@ const styledElement = styled(Footer)`
   width: 100%;
   height: 70px;
   color: #fff;
-  position: fixed;
+  position: relative;
   bottom: 0;
   text-align: center;
   .footerText {
@@ -31,6 +31,7 @@ const styledElement = styled(Footer)`
     position: fixed;
     bottom: 115px;
     right: 3.9vw;
+    z-index: 10000;
     &:hover {
       cursor: pointer;
     }
