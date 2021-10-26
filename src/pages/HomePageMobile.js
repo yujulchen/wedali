@@ -41,7 +41,7 @@ const HomePageMobile = (props) => {
     <div className={className}>
       <div
         className="gearBox mt"
-        style={{ marginBottom: showTop ? "14rem" : "0" }}
+        style={{ marginBottom: showTop ? "20rem" : "0" }}
       >
         <div className="gear">
           <Gear className="iconTop" onClick={() => setClickItem("top")} />
