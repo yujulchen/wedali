@@ -45,10 +45,10 @@ const HomePageEnglish = (props) => {
           </div>
           <div className="introductionText">
             <span className="introductionSpan">
-              Mold Manufacture’s processing department has CNC washing machines,
-              electric discharge machining, and brook bed grinders. All of these
-              components have been properly regulated, have a tolerance margin,
-              and have undergone assemble testing.
+              The injection of microscopic plastic molecules inside of a
+              machine, plastic molecules are heated, and pressure is added
+              inside of the pattern, then the mold cools down, giving customers
+              the product they desire.
             </span>
           </div>
         </div>
@@ -63,10 +63,10 @@ const HomePageEnglish = (props) => {
           </div>
           <div className="introductionText">
             <span className="introductionSpan">
-              The injection of microscopic plastic molecules inside of a
-              machine, plastic molecules are heated, and pressure is added
-              inside of the pattern, then the mold cools down, giving customers
-              the product they desire.
+              Mold Manufacture’s processing department has CNC washing machines,
+              electric discharge machining, and brook bed grinders. All of these
+              components have been properly regulated, have a tolerance margin,
+              and have undergone assemble testing.
             </span>
           </div>
         </div>

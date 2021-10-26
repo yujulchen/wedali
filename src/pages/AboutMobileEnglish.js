@@ -32,7 +32,7 @@ const AboutMobileEnglish = (props) => {
           <div className="aboutBox">
             <div className="aboutText">
               <p>
-                Weidali enterprise is a single-venture company. Founded in 1927,
+                Weidali enterprise is a single-venture company. Founded in 2005,
                 the enterprise has collaborated with Mold Design in plastic
                 molecules production for many years. Producing intellectually
                 stimulating toys, automotive components, household electronics

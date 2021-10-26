@@ -25,15 +25,15 @@ const HomePageMobile = (props) => {
   useEffect(() => {
     showTop &&
       setShowText(
-        "將塑膠粒加入射出機內，塑膠粒加熱後加壓射出至模具內，待冷卻後開模，即可得到客戶所需要的成品。"
+        "我們的設計部門擁有多年的生產設計經歷，對於各類產品、模具結構乃至於材料的特性都有很深入的了解，設計部能夠提供客戶最專業的模具設計建議，幫客戶節省開模成本，提高生產效率及減少模具開發風險。"
       );
     showCenter &&
       setShowText(
-        "我們加工部門有製造精密模具所需的CNC數控銑床、放電加工機、銑床磨床，確定各零件的公差符合規定，然後組裝試模。"
+        "將塑膠粒加入射出機內，塑膠粒加熱後加壓射出至模具內，待冷卻後開模，即可得到客戶所需要的成品。"
       );
     showBottom &&
       setShowText(
-        "我們的設計部門擁有多年的生產設計經歷，對於各類產品、模具結構乃至於材料的特性都有很深入的了解，設計部能夠提供客戶最專業的模具設計建議，幫客戶節省開模成本，提高生產效率及減少模具開發風險。"
+        "我們加工部門有製造精密模具所需的CNC數控銑床、放電加工機、銑床磨床，確定各零件的公差符合規定，然後組裝試模。"
       );
   }, [showTop, showCenter, showBottom]);
 
@@ -91,8 +91,8 @@ const HomePageMobile = (props) => {
           <Gear className="iconTop" onClick={() => setClickItem("bottom")} />
           <div className="gearText" onClick={() => setClickItem("bottom")}>
             <div className="textAlign">
-              <p className="gearTitle">模具設計</p>
-              <p>MOLD DESIGN</p>
+              <p className="gearTitle">模具製造</p>
+              <p>MOLD MANUFACTURE</p>
             </div>
           </div>
           <div

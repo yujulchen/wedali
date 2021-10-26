@@ -31,7 +31,7 @@ const AboutEnglish = (props) => {
           <div className="aboutText">
             <p>Weidali enterprise is a single-venture company.</p>
             <p>
-              Founded in 1927, the enterprise has collaborated with Mold Design
+              Founded in 2005, the enterprise has collaborated with Mold Design
               in plastic molecules production for many years.
             </p>
             <p>
