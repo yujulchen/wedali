@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { rotateIn, fadeIn, slideInUp } from "react-animations";
 import Gear from "./components/svg/Gear";
@@ -5,7 +6,7 @@ import GearCenter from "./components/svg/GearCenter";
 import FirstBlock from "./components/svg/FirstBlock";
 import MainProcess from "./components/svg/MainProcess";
 import MainProcessFlow from "./components/svg/MainProcessFlow";
-import { useEffect, useState } from "react";
+import { CenterCarousel } from "./components/Carousel";
 
 const rotateInAnimation = keyframes`${rotateIn}`;
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -66,6 +67,9 @@ const HomePage = (props) => {
 
   return (
     <div className={className}>
+      <div className="carousel">
+        <CenterCarousel centerSlidePercentage={80} />
+      </div>
       <div className="gearBox">
         <div className="gearItemLeft">
           <Gear className="iconLeft" onClick={() => setClickItem("left")} />
@@ -107,6 +111,13 @@ const HomePage = (props) => {
 
 const styledElement = styled(HomePage)`
   padding: 70px 8.3vw;
+  .carousel {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 65vh;
+    margin: 0 auto;
+  }
   .gearBox {
     display: flex;
     justify-content: center;

@@ -7,6 +7,7 @@ import QualityTitle from "./components/svg/QualityTitle";
 import IntegrationOfEquipmentEnglish from "./components/svg/IntegrationOfEquipmentEnglish";
 import TechnicalServiceEnglish from "./components/svg/TechnicalServiceEnglish";
 import ContinuousDevelopmentEnglish from "./components/svg/ContinuousDevelopmentEnglish";
+import iso9001 from "../image/iso9001.jpg";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 const slideInUpAnimation = keyframes`${slideInUp}`;
@@ -84,12 +85,27 @@ const AboutEnglish = (props) => {
           </div>
         </div>
       </div>
+      <div className="licenseImg">
+        <img src={iso9001} alt="iso9001" />
+      </div>
     </div>
   );
 };
 const styledElement = styled(AboutEnglish)`
   padding: 70px 8.3vw;
   overflow: hidden;
+  .licenseImg {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 120px auto;
+    animation: ${fadeInAnimation} 2s;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
   .intentionBox {
     display: flex;
     justify-content: center;

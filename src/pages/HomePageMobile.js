@@ -4,6 +4,7 @@ import { rotateIn, fadeIn } from "react-animations";
 import Gear from "./components/svg/Gear";
 import MainProcessFlowM from "./components/svg/MainProcessFlowM";
 import MainProcessMobile from "./components/svg/MainProcessMobile";
+import { CenterCarousel } from "./components/Carousel";
 
 const rotateInAnimation = keyframes`${rotateIn}`;
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -111,6 +112,9 @@ const HomePageMobile = (props) => {
         </div>
         <MainProcessFlowM style={{ width: "100%", height: "100%" }} />
       </div>
+      <div className="carousel">
+        <CenterCarousel centerSlidePercentage={80} />
+      </div>
     </div>
   );
 };
@@ -118,6 +122,13 @@ const HomePageMobile = (props) => {
 const styledElement = styled(HomePageMobile)`
   padding: 56px;
   overflow: hidden;
+  .carousel {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 180px;
+    margin: 0 auto;
+  }
   .gearBox {
     display: flex;
     justify-content: center;
